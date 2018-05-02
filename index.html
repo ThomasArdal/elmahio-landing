@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>ELMAH Cloud Logging - Error Management for .NET websites | elmah.io</title>
+    <meta name="description" content="Cloud logging for .NET web applications using ELMAH. Find bugs before you go live. Powerful search, API, integration with Slack, GitHub, Visual Studio and more" />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/js/vendor/owl/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css">
+  </head>
+  <body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-overlap navbar-expand-md navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="https://elmah.io/"><img src="assets/img/logo.png" alt="elmah.io"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+                    <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+                </ul>
+                <ul class="navbar-signin">
+                    <li class="hidden-xs"><span class="navbar-text">Sign in:</span></li>
+                    <li><a href="#"><i class="fa fa-user"></i></a></li>
+                    <li><a href="https://elmah.io/authentication/redirect/Twitter"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://elmah.io/authentication/redirect/Facebook"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://elmah.io/authentication/redirect/Google"><i class="fa fa-google-plus"></i></a></li>
+                    <li><a href="https://elmah.io/authentication/redirect/windowslive"><i class="fa fa-windows"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero section -->
+    <div class="section section-hero">
+        <div class="container">
+            <div class="section-body">
+                <h1 class="text-center">Take back control</h1>
+                <h2 class="text-center">When your website feels sick, we've got your back !</h2>
+                <a href="javascript:;" class="btn btn-hero text-center" data-toggle="modal" data-target="#signinModal">
+                    <span>Sign Up Now</span>
+                    <span class="info">no credit card required</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Features section -->
+    <div class="section section-features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-heading">How it works</h2>
+            </div>
+            <div class="section-body">
+                <div class="row d-none d-sm-block">
+                    <div class="col">
+                        <img class="img-fluid" src="assets/img/features-image.png" alt="features-steps" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <img class="img-fluid d-inline-block d-sm-none" src="assets/img/features-step-1.png" alt="features-step-1" />
+                        <h3>We monitor your websites</h3>
+                        <p>We monitor your websites for crashes and availability. This helps you get an overview of the quality of your applications and to spot trends in your releases.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid d-inline-block d-sm-none" src="assets/img/features-step-2.png" alt="features-step-2" />
+                        <h3>We notify you</h3>
+                        <p>We notify you when errors starts happening using Slack, HipChat, mail or other forms of communication to help you react to errors before your users do.</p>
+                    </div>
+                    <div class="col-sm-4">
+                        <img class="img-fluid d-inline-block d-sm-none" src="assets/img/features-step-3.png" alt="features-step-3" />
+                        <h3>We help you fix bugs</h3>
+                        <p>We help you fix bugs quickly by combining error diagnostic information with innovative quick fixes and answers from Stack Overflow and social media.</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-4">
+                        <p class="text-normal text-center"><a href="/features">Learn more about logging and tracking errors - notifications and integrations</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Customers section -->
+    <div class="section section-customers">
+        <div class="container">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col">
+                        <img class="img-fluid" src="assets/img/customer.png" alt="elmah.io customers" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quotes section -->
+    <div class="section section-quotes">
+        <div class="container">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-2">What a great idea, ELMAH (Error Logging) for .NET in the cloud.</p>
+                            <footer class="blockquote-footer">
+                                <img src="assets/img/tweets/shanselman.jpeg" />
+                                <span>Scott Hanselman, Principal Program Manager at Microsoft</span>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonials section -->
+    <div class="section section-testimonials section-gray">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-heading">Customer stories</h2>
+            </div>
+            <div class="section-body">
+                <div class="testimonial-container text-center">
+                    <div class="testimonial-wrapper owl-carousel">
+                        <div class="item text-center">
+                            <div class="image-outer">
+                                <img src="assets/img/tweets/larsjacobsson.jpg" alt="Lars Jacobsson recommend elmah.io" />
+                            </div>
+                            <h4 class="name">Lars Jacobsson</h4>
+                            <i>Lead Developer at MatHem.se - Sweden's leading online grocery store</i>
+                            <div class="text-outer">
+                                <h4>We use it all the way from the development to production environments</h4>
+                                <p>By collecting all error logs in one place, elmah.io has given us a much better insight into our applications. We use it all the way from the development to production environments and by doing so it's hard not to catch errors before they go live. A huge plus is that it works with any popular logging framework and isn't limited to ELMAH. Getting started is easy and adds no development overhead - it just works. If it for whatever reason doesn't, then the support is very quick to reply and happy to help.</p>
+                            </div>
+                        </div>
+
+                        <div class="item text-center">
+                            <div class="image-outer">
+                                <img src="assets/img/tweets/quynhnguyen.jpg" alt="Quynh Nguyen recommend elmah.io" />
+                            </div>
+                            <h4 class="name">Quynh Nguyen</h4>
+                            <i>Chief Technology Officer at Rosslyn Analytics - Rosslyn Analytics helps organizations create new business value from previously inaccessible enterprise data</i>
+                            <div class="text-outer">
+                                <h4>I would personally use elmah.io and recommend it to my developer friends</h4>
+                                <p>elmah.io has been an important part of our process over the past two years. We first used it as a trial for an internal API to help with debugging. The ease of use won the whole team over and elmah.io quickly became the de facto choice for all production projects at Rosslyn Analytics. elmah.io's web interface makes it accessible for not only developers but also project managers and testers, especially for a distributed team like ours. It facilitates the flow of information and saves us plenty of development time in the process.</p>
+                            </div>
+                        </div>
+
+                        <div class="item text-center">
+                            <div class="image-outer">
+                                <img src="assets/img/tweets/jamesreategui.jpg" alt="James Reátegui recommend elmah.io" />
+                            </div>
+                            <h4 class="name">James Reátegui</h4>
+                            <i>Chief Technology Officer at juntoz.com - Perú's B2C Marketplace</i>
+                            <div class="text-outer">
+                                <h4>elmah.io makes it easy for us by providing a centralized dashboard with real time stats</h4>
+                                <p>Keeping track of issues in a micro-service architecture can be tricky, but elmah.io makes it easy for us by providing a centralized dashboard with real time stats for our multiple apps. When we see issues pop up, being able to quickly see how recurrent a particular error is over time with elmah.io's graphs help us identify urgency. We've never had uptime issues with the SaaS offering and are overall very happy with elmah.io and the level of support.</p>
+                            </div>
+                        </div>
+
+                        <div class="item text-center">
+                            <div class="image-outer">
+                                <img src="assets/img/tweets/ismailmayat.jpg" alt="Ismail Mayat recommend elmah.io" />
+                            </div>
+                            <h4 class="name">Ismail Mayat</h4>
+                            <i>Senior Web Developer at thecogworks.com - A leading Umbraco Gold Partner</i>
+                            <div class="text-outer">
+                                <h4>elmah.io opened up a whole new window to our site code base</h4>
+                                <p>We use elmah.io across all our projects at The Cogworks. We became familiar with it when one of our existing projects was causing us performance issues. Trawling through our application and IIS logs we had found nothing of note but when we installed elmah.io it opened up a whole new window to our site code base. We soon found the problem and all was fixed. Now after working with it on an ongoing basis, what we really like is the slack integration that acts like an early warning system. Now it’s a case of how did we ever live without it?</p>
+                            </div>
+                        </div>
+
+                        <div class="item text-center">
+                            <div class="image-outer">
+                                <img src="assets/img/tweets/ian.png" alt="Ian Buchan recommend elmah.io" />
+                            </div>
+                            <h4 class="name">Ian Buchan</h4>
+                            <i>Director of Technology at iAM Global Education - Increasing access to education that will allow you to shape your world</i>
+                            <div class="text-outer">
+                                <h4>I would gladly recommend elmah.io to anyone who wants to untangle their logging environment</h4>
+                                <p>I've been working with elmah.io for a little over a year now in a .NET Core Lambda environment. Their logging offerings are well-featured, easy to implement, and a fraction of the cost of their competitors. On top of their great products, their support team has been top-notch. On multiple occasions, I've had the opportunity to directly work with one of their developers to help solve my issues or concerns. I would gladly recommend elmah.io to anyone who wants to untangle their logging environment.</p>
+                            </div>
+                        </div>
+
+                        <div class="item text-center">
+                            <div class="image-outer">
+                                <img src="assets/img/tweets/david.png" alt="David Strickland recommend elmah.io" />
+                            </div>
+                            <h4 class="name">David Strickland</h4>
+                            <i>Chief Technology Officer at NeuroticMedia - Neurotic Media helps brands influence consumer behavior using popular artists and songs</i>
+                            <div class="text-outer">
+                                <h4>elmah.io provides the most amazing UI to slice and dice the data</h4>
+                                <p>I have used the standalone ELMAH for a decade. It's a great standard for handling errors, but it's a pain to setup the DB logger. It required constant attention, and the only tool to search the data is manual SQL statements. elmah.io makes it incredibly simpler to setup and incorporate ELMAH into your projects. It is remarkably stable, and the UI is much more than a simple list of errors. elmah.io provides the most amazing UI to slice and dice the data as an analytics server. I see it as an invaluable tool to provide a high-quality product at neuroticmedia.com.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mt-4">
+                        <p class="text-normal text-center"><a href="/customer-stories/">Read full customer stories</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technologies section -->
+    <div class="section section-technologies">
+        <div class="container">
+            <div class="section-body text-center">
+                <div class="row">
+                    <div class="col">
+                        <img class="img-fluid" src="assets/img/elmah-technologies.png" alt="elmah.io technologies: Microsoft.NET, Microsoft Azure, Elasticsearch, Redis" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quotes section -->
+    <div class="section section-quotes">
+        <div class="container">
+            <div class="section-body">
+                <div class="row">
+                    <div class="col">
+                        <blockquote class="blockquote text-center">
+                            <p class="mb-2">elmah.io is powerful, super intuitive, and just works. It's as if a real person made it for real people.</p>
+                            <footer class="blockquote-footer">
+                                <img src="assets/img/tweets/anthonydang.png" />
+                                <span>Anthony Dang, Head of Development at The Cogworks</span>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+    	<div class="pre-footer">
+	    	<div class="container">
+	    		<div class="company-logo">
+					<img class="img-fluid" src="assets/img/elmahio.png" alt="elmah.io">
+				</div>
+				<a href="https://elmah.io/pricing/" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+			</div>
+	    </div>
+    	<div class="links">
+    		<div class="container">
+    			<div class="row">
+    				<div class="col">
+    					<h5>Product</h5>
+    					<ul class="list-unstyled">
+							<li><a href="https://elmah.io/features/">Features</a></li>
+							<li><a href="https://elmah.io/pricing/">Pricing</a></li>
+							<li><a href="https://elmah.io/api">API</a></li>
+							<li><a href="https://headwayapp.co/elmah-io-changelog" rel="noopener noreferrer" target="_blank">Changelog</a></li>
+						</ul>
+    				</div>
+    				<div class="col">
+    					<h5>Company</h5>
+						<ul class="list-unstyled">
+							<li><a href="https://elmah.io/about/">About</a></li>
+							<li><a href="https://elmah.io/contact/">Contact</a></li>
+							<li><a href="https://blog.elmah.io/">Blog</a></li>
+							<li><a href="https://docs.elmah.io/">Docs</a></li>
+						</ul>
+    				</div>
+    				<div class="col">
+    					<h5>Learn</h5>
+						<ul class="list-unstyled">
+							<li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+							<li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+							<li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
+							<li><a href="https://elmah.io/tools/">Free Tools</a></li>
+						</ul>
+    				</div>
+    				<div class="col">
+    					<h5>Guides</h5>
+						<ul class="list-unstyled">
+							<li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+							<li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+							<li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+						</ul>
+    				</div>
+                    <div class="col">
+                        <h5>Social</h5>
+                        <ul class="list-unstyled social">
+                            <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fa fa-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fa fa-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fa fa-google-plus"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fa fa-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+    			</div>
+    		</div>
+    	</div>
+    	<div class="copyright">
+    		<div class="container">
+    			<div class="text-center">
+					<p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
+					<p><a href="https://elmah.io/termsofuse/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+				</div>
+    		</div>
+    	</div>
+    </footer>
+
+    <!-- SignIn Modal -->
+    <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sign up using...</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="signinbuttons">
+                        <a href="/authentication/redirect/Twitter" class="twitter">
+                            <svg width="100%" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5t-115.5 248.5-184.5 210.5-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5t-114-159.5q33 5 61 5 43 0 85-11-112-23-185.5-111.5t-73.5-205.5v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5t371.5 99.5q-8-38-8-74 0-134 94.5-228.5t228.5-94.5q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"></path></svg>
+                            Twitter
+                        </a>
+                        <a href="/authentication/redirect/Facebook" class="facebook">
+                            <svg width="100%" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759h-306v-759h-255v-296h255v-218q0-186 104-288.5t277-102.5q147 0 228 12z"></path></svg>
+                            Facebook
+                        </a>
+                        <a href="/authentication/redirect/windowslive" class="live">
+                            <svg width="100%" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M746 1006v651l-682-94v-557h682zm0-743v659h-682v-565zm982 743v786l-907-125v-661h907zm0-878v794h-907v-669z"></path></svg>
+                            Microsoft
+                        </a>
+                        <a href="/authentication/redirect/Google" class="google">
+                            <svg width="100%" height="30" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M799 796q0 36 32 70.5t77.5 68 90.5 73.5 77 104 32 142q0 90-48 173-72 122-211 179.5t-298 57.5q-132 0-246.5-41.5t-171.5-137.5q-37-60-37-131 0-81 44.5-150t118.5-115q131-82 404-100-32-42-47.5-74t-15.5-73q0-36 21-85-46 4-68 4-148 0-249.5-96.5t-101.5-244.5q0-82 36-159t99-131q77-66 182.5-98t217.5-32h418l-138 88h-131q74 63 112 133t38 160q0 72-24.5 129.5t-59 93-69.5 65-59.5 61.5-24.5 66zm-146-96q38 0 78-16.5t66-43.5q53-57 53-159 0-58-17-125t-48.5-129.5-84.5-103.5-117-41q-42 0-82.5 19.5t-65.5 52.5q-47 59-47 160 0 46 10 97.5t31.5 103 52 92.5 75 67 96.5 26zm2 873q58 0 111.5-13t99-39 73-73 27.5-109q0-25-7-49t-14.5-42-27-41.5-29.5-35-38.5-34.5-36.5-29-41.5-30-36.5-26q-16-2-48-2-53 0-105 7t-107.5 25-97 46-68.5 74.5-27 105.5q0 70 35 123.5t91.5 83 119 44 127.5 14.5zm810-876h213v108h-213v219h-105v-219h-212v-108h212v-217h105v217z"></path></svg>
+                            Google
+                        </a>
+
+                        <div class="delimiter"><span> or </span></div>
+
+                        <p class="text-muted mt-4">Sign up using email and password</p>
+
+                        <form id="signUpUsernameForm" data-bind="validationOptions: {messageTemplate: 'errorTemplate'}">
+                            <div class="form-group">
+                                <input type="email" class="form-control" data-bind="value: username, disable: working" placeholder="Email" title="This field is required." data-orig-title="" autocomplete="off">
+                                <span class="errormessage" data-bind="if: field.isModified() &amp;&amp; !field.isValid()"></span>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" data-bind="value: password, disable: working" placeholder="Password" title="This field is required." data-orig-title="" autocomplete="off">
+                                <span class="errormessage" data-bind="if: field.isModified() &amp;&amp; !field.isValid()"></span>
+                            </div>
+                            <button type="submit" class="btn btn-success" data-bind="click: signUp, disable: working">Sign up</button> <span style="padding-left: 5px;">or</span> <a href="#" style="color: #0da58e; display: inline; padding: 0;" data-bind="click: signIn">sign in</a>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/vendor/owl/owl.carousel.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
