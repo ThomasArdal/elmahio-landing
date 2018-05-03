@@ -5,7 +5,7 @@ $(document).ready(function(){
 		items: 1,
 		itemElement: "div.item",
 		loop: true,
-		autoplay: false
+		autoplay: true
 	});
 
 });
