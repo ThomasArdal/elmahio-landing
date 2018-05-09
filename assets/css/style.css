@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700,900');
 
 body {
+	position: relative;
 	background: #ffffff;
 	font-family: 'Lato', sans-serif;
 }
@@ -54,6 +55,67 @@ button:focus {
 	box-shadow: none !important;
 }
 
+.cursor {
+	display: inline;
+	margin-left: 5px;
+	border-right: 2px solid;
+	width: 2px;
+	height: 87%;
+	vertical-align: middle;
+	-webkit-animation: pulse 1.5s ease-out;
+	-o-animation: pulse 1.5s ease-out;
+	animation: pulse 1.5s ease-out;
+	-webkit-animation-iteration-count: infinite;
+	-moz-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+.docs-link, .blog-link {
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 2px 8px 2px 0px;
+    border-radius: 4px;
+    font-size: 11px;
+    background-color: #ffffff;
+}
+.docs-link:before, .blog-link:before {
+    border-radius: 4px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    content: "Docs";
+    border-right: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 1px 8px;
+    margin-right: 7px;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, 0.06);
+    color: #444;
+}
+.blog-link:before {
+    content: "Blog";
+}
+
+@-moz-keyframes pulse {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+@-webkit-keyframes "pulse" {
+	0% {
+		opacity: 1;
+	}
+	50% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 .navbar {
 	padding: 14px 0px;
 }
@@ -89,6 +151,19 @@ button:focus {
 .navbar-signin li span.navbar-text {
 	padding: 10px;
 	color: #ffffff;
+}
+.navbar-special {
+	border-bottom: 1px solid #eee;
+}
+.navbar-special .navbar-nav .nav-link {
+	padding: .5rem .75rem;
+	font-size: 14px;
+}
+.navbar-special .navbar-nav .nav-link.active {
+	color: #18a19a;
+}
+.navbar-special .btn {
+	font-size: 14px;
 }
 
 footer .pre-footer {
@@ -181,7 +256,6 @@ footer .copyright a {
 }
 
 .section .section-header {
-	text-align: center;
 	margin: 0 auto 30px;
 }
 .section .section-header h2 {
@@ -231,6 +305,17 @@ footer .copyright a {
 	font-size: 14px;
 	font-weight: 400;
 }
+.section.section-hero .features-hero {
+	font-size: 15px;
+	text-align: center;
+}
+.section.section-hero .features-hero h3 {
+	font-size: 24px;
+	margin-bottom: 20px;
+}
+.section.section-hero .features-hero .btn {
+	font-size: 14px;
+}
 
 /* ========= Features section ========= */
 .section.section-features {
@@ -265,6 +350,9 @@ footer .copyright a {
 	padding: 30px;
 	border: 1px solid #eee;
 	margin: 0px;
+}
+.section.section-quotes blockquote p {
+	font-size: 1.125rem;
 }
 .section.section-quotes blockquote p:before, .section.section-quotes blockquote p:after {
     color: #ccc;
@@ -351,15 +439,240 @@ footer .copyright a {
     box-shadow: 0 5px 40px 0 rgba(0,129,255,.3);
 }
 
+/* ========= Core section ========= */
+.section.section-core {
+	text-align: center;
+	font-size: 14px;
+}
+.section.section-core .icon {
+	margin-bottom: 20px;
+}
+.section.section-core .icon svg {
+	width: 80px;
+	height: 80px;
+	overflow: initial;
+}
+.section.section-core h4 {
+	font-size: 20px;
+}
+
+/* ========= Tracking section ========= */
+.section.section-tracking {
+	font-size: 14px;
+	border-top: 1px solid #eee;
+}
+.section.section-tracking .section-header {
+    margin: 0 auto 20px;
+}
+.section.section-tracking .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-tracking .section-body h4 {
+	font-size: 1.25rem;
+}
+
+/* ========= Logging section ========= */
+.section.section-logging {
+	font-size: 14px;
+	border-top: 1px solid #eee;
+}
+.section.section-logging .section-header {
+    margin: 0 auto 20px;
+}
+.section.section-logging .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-logging .section-body h4 {
+	font-size: 1.25rem;
+}
+
+/* ========= Notifications section ========= */
+.section.section-notifications {
+	font-size: 14px;
+	padding: 70px 0px;
+    color: #ffffff;
+    background: #179A99 url(../img/hero-bg.svg) no-repeat center;
+    background-size: cover;
+    overflow: hidden;
+    border-bottom: 2px solid #ffffff;
+}
+.section.section-notifications .notifications svg {
+	overflow: initial;
+    position: absolute;
+    width: 100% !important;
+    top: 5px;
+    left: 0;
+    height: 506px !important;
+}
+.section.section-notifications .section-body h2 {
+	padding: 0px;
+	margin: 0 auto 20px;
+	font-size: 1.75rem;
+	line-height: 50px;
+    display: inline-block;
+}
+.section.section-notifications .section-body h4 {
+	font-size: 1.1rem;
+}
+.section.section-notifications .section-body p {
+	margin-bottom: 10px;
+}
+
+/* ========= Integrations section ========= */
+.section.section-integrations {
+	padding: 70px 0;
+	font-size: 14px;
+	background: #065c85;
+	color: #ffffff;
+}
+.section.section-integrations .section-header {
+    margin: 0 auto 20px;
+}
+.section.section-integrations .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-integrations .section-body h4 {
+	font-size: 1.25rem;
+}
+.section.section-integrations .section-body .integrations svg {
+    max-width: 800px;
+    width: 100%;
+    height: 100%;
+}
+
+/* ========= Quickfixes section ========= */
+.section.section-quickfixes {
+	font-size: 14px;
+}
+.section.section-quickfixes .section-header {
+    margin: 0 auto 20px;
+}
+.section.section-quickfixes .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-quickfixes .section-body h4 {
+	font-size: 1.25rem;
+}
+
+/* ========= Usertracking section ========= */
+.section.section-usertracking {
+	font-size: 14px;
+	border-top: 1px solid #eee;
+}
+.section.section-usertracking .section-header {
+    margin: 0 auto 20px;
+}
+.section.section-usertracking .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-usertracking .section-body h4 {
+	font-size: 1.25rem;
+}
+
+/* ========= Deployment tracking section ========= */
+.section.section-deploymenttracking {
+	font-size: 14px;
+	text-align: center;
+	padding: 70px 0px;
+    color: #ffffff;
+    background: #179A99 url(../img/hero-bg.svg) no-repeat center;
+    background-size: cover;
+    border-bottom: 2px solid #ffffff;
+}
+.section.section-deploymenttracking .section-header {
+    margin: 0 auto 20px;
+    text-align: left;
+}
+.section.section-deploymenttracking .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-deploymenttracking .section-body h4 {
+	font-size: 1.25rem;
+	margin-bottom: 10px;
+}
+.section.section-deploymenttracking .icon {
+	margin-bottom: 20px;
+	text-align: center;
+}
+.section.section-deploymenttracking .icon svg {
+	width: 80px;
+	height: 80px;
+	overflow: initial;
+}
+
+/* ========= Uptime monitoring section ========= */
+.section.section-uptimemonitoring {
+	padding: 70px 0;
+    font-size: 14px;
+    background: #065c85;
+    color: #ffffff;
+}
+.section.section-uptimemonitoring .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-uptimemonitoring .section-body h4 {
+	font-size: 1.25rem;
+}
+
+/* ========= Extra goodies section ========= */
+.section.section-extra {
+	padding: 70px 0;
+    font-size: 14px;
+    background: #f5f5f5;
+}
+.section.section-extra .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-extra .section-body h4 {
+	font-size: 1.25rem;
+}
+
+/* ========= FAQ section ========= */
+.section.section-faq {
+    font-size: 14px;
+}
+.section.section-faq .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-faq .section-body h4 {
+	font-size: 1.25rem;
+}
+
+/* ========= Startups section ========= */
+.section.section-startups {
+    font-size: 14px;
+    border-top: 1px solid #eee;
+}
+.section.section-startups .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-startups .section-body h4 {
+	font-size: 1.25rem;
+}
+.section.section-startups .section-body .btn {
+	font-size: 14px;
+	display: block;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+}
+
 /* ========= Modal SignIn ========= */
-.signinbuttons svg {
+.signinbuttons i {
 	width: 16px;
 	height: 16px;
 	margin-right: 20px;
 	vertical-align: middle;
-}
-.signinbuttons svg path {
-	fill: #fff;
 }
 .signinbuttons a {
 	padding: 20px;
@@ -404,10 +717,164 @@ footer .copyright a {
 	color: #CCCCCC;
 }
 
+/* ========= Plan section ========= */
+.section.section-plan {
+	padding: 40px 0px;
+}
+.list-prices {
+	border-radius: 6px;
+	position: relative;
+	margin-bottom: 22px;
+}
+.list-prices li {
+	padding: 10px;
+	min-height: 45px;
+	text-align: center;
+}
+.list-prices li:not(.header) {
+	border: 1px solid #ddd;
+	border-width: 0 1px 1px 1px;
+	background-color: #f5f5f5;
+}
+.list-prices.most-popular {
+	box-shadow: 0 0 0 4px white, 0 0 0px 8px #0da58e;
+}
+.list-prices:hover,
+.list-prices.popular {
+	box-shadow: 0 0px 20px rgba(0, 0, 0, 0.2), 0 5px 20px rgba(0, 0, 0, 0.15);
+	margin-top: -10px;
+	margin-bottom: 0;
+	margin-left: -1%;
+	width: 101%;
+	z-index: 10;
+}
+.list-prices:hover li,
+.list-prices.popular li {
+	padding: 11px;
+}
+.list-prices li.header {
+	font-size: 28px;
+	font-weight: 400;
+	background-color: #0da58e;
+	color: #fff;
+}
+.list-prices li.price {
+	font-size: 80px;
+	font-weight: 400;
+	border-bottom: 0;
+}
+.list-prices li.price sup {
+	font-size: 50%;
+	font-weight: 100;
+	vertical-align: super;
+	top: 0px;
+}
+.list-prices li.price:after {
+	content: "per month";
+	color: #777777;
+	font-weight: normal;
+	font-size: 14px;
+	display: block;
+}
+.list-prices li.action {
+	padding-bottom: 40px;
+}
+.list-prices li.action .btn {
+	background-color: #0da58e;
+	border: 0;
+	color: white;
+}
+.price-col:first-child li.header {
+	border-top-left-radius: 4px;
+}
+.price-col:first-child li.action {
+	border-bottom-left-radius: 4px;
+}
+.price-col:last-child li.header {
+	border-top-right-radius: 4px;
+}
+.price-col:last-child li.action {
+	border-bottom-right-radius: 4px;
+}
+.price-col:not(:first-child):not(:last-child) {
+	padding-left: 0;
+	padding-right: 0;
+}
+@media (min-width: 992px) {
+	.price-col {
+		width: 20%;
+	}
+}
+.list-prices-smallbusiness.most-popular {
+	box-shadow: 0 0 0 4px white, 0 0 0 8px #0b8d8b;
+}
+.list-prices-smallbusiness li.header {
+	background-color: #0b8d8b;
+}
+.list-prices-smallbusiness li.action .btn {
+	background-color: #0b8d8b;
+	color: white;
+}
+.list-prices-business.most-popular {
+	box-shadow: 0 0 0 4px white, 0 0 0 8px #087588;
+}
+.list-prices-business li.header {
+	background-color: #087588;
+}
+.list-prices-business li.action .btn {
+	background-color: #087588;
+	color: white;
+}
+.list-prices-businessplus.most-popular {
+	box-shadow: 0 0 0 4px white, 0 0 0 8px #065c85;
+}
+.list-prices-businessplus li.header {
+	background-color: #065c85;
+}
+.list-prices-businessplus li.action .btn {
+	background-color: #065c85;
+	color: white;
+}
+.list-prices-enterprise.most-popular {
+	box-shadow: 0 0 0 4px white, 0 0 0 8px #034482;
+}
+.list-prices-enterprise li.header {
+	background-color: #034482;
+}
+.list-prices-enterprise li.action .btn {
+	background-color: #034482;
+	color: white;
+}
+
+@media (max-width: 1199px) {
+	.section.section-notifications .notifications svg {
+		top: -5px;
+	}
+	.section.section-startups .section-body p br {
+		display: none;
+	}
+}
+
 @media (max-width: 991px) {
 	.navbar-expand-md>.container, .navbar-expand-md>.container-fluid {
 	    padding-right: 15px;
 	    padding-left: 15px;
+	}
+	.navbar-special {
+		display: none;
+	}
+	.section.section-notifications .notifications svg {
+		top: 0px;
+		height: 380px !important;
+	}
+	.card-columns {
+		column-count: 2;
+	}
+	.list-prices {
+		font-size: 14px;
+	}
+	.list-prices li.price {
+		font-size: 60px;
 	}
 }
 
@@ -425,9 +892,44 @@ footer .copyright a {
 		background: #17A79A;
 		margin: 15px -15px -15px -15px;
 	}
+	.card-columns {
+		column-count: 1;
+	}
+	.section.section-startups .section-body .btn {
+		display: inline-block;
+	}
+	.list-prices:hover,
+	.list-prices.popular {
+		box-shadow: none;
+		margin-top: 0;
+		margin-bottom: 22px;
+		margin-left: 0;
+		width: 100%;
+		z-index: 10;
+	}
+	.list-prices:hover li,
+	.list-prices.popular li {
+		padding: 10px;
+	}
+	.list-prices li.action {
+		padding-bottom: 40px;
+	}
+	.price-col li.header {
+	    border-top-left-radius: 4px;
+	    border-top-right-radius: 4px;
+	}
+	.list-prices li:empty {
+		display: none;
+	}
+	.list-prices-enterprise ul {
+		margin-bottom: 0px !important;
+	}
 }
 
 @media screen and (max-width: 576px) {
+	.section.section-notifications .notifications {
+		display: none;
+	}
 	footer .pre-footer {
 	    margin-top: 0px;
 	    height: auto;

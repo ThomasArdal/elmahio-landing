@@ -1,0 +1,776 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>ELMAH Cloud Logging - Error Management for .NET websites | elmah.io</title>
+        <meta name="description" content="Cloud logging for .NET web applications using ELMAH. Find bugs before you go live. Powerful search, API, integration with Slack, GitHub, Visual Studio and more" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/fonts/font-awesome/css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="assets/js/vendor/owl/assets/owl.carousel.min.css" />
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-overlap navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="https://elmah.io/"><img src="assets/img/logo.png" alt="elmah.io"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-signin">
+                        <li class="hidden-xs"><span class="navbar-text">Sign in:</span></li>
+                        <li><a href="#"><i class="fa fa-user"></i></a></li>
+                        <li><a href="https://elmah.io/authentication/redirect/Twitter"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://elmah.io/authentication/redirect/Facebook"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://elmah.io/authentication/redirect/Google"><i class="fab fa-google-plus-g"></i></a></li>
+                        <li><a href="https://elmah.io/authentication/redirect/windowslive"><i class="fab fa-windows"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero section -->
+        <div class="section section-hero">
+            <div class="container">
+                <div class="section-body">
+                    <h1 class="text-center">Features</h1>
+                    <div class="row features-hero my-3">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h3>Error Management</h3>
+                            <p>elmah.io is our error management system for .NET web applications. With elmah.io, you will be able to log exceptions and messages from your website, get notifications through popular channels like mail, Slack and HipChat and finally, get help fixing bugs fast. You will find that elmah.io is the best error tracking option for .NET.</p>
+                            <a href="#core" class="btn btn-success js-scroll-trigger">More</a>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h3>Deployment Tracking</h3>
+                            <p>With Deployment Tracking, you get the perfect overview of your different software releases and how each release performs in terms of logged errors and warnings. Deployment Tracking is the perfect companion to error management with elmah.io and integrates with Octopus Deploy, Visual Studio Team Services and more.</p>
+                            <a href="#deploymenttracking" class="btn btn-success js-scroll-trigger">More</a>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h3>Uptime Monitoring</h3>
+                            <p>Uptime Monitoring lets you set up one or more HTTP(s) endpoints to monitor. We automatically ping all of your endpoints every 5 minutes from 5 different locations. Uptime Monitoring integrates with your existing error log and notifications already set up. Discover the benefits of combining error logs with uptime checks.</p>
+                            <a href="#uptimemonitoring" class="btn btn-success js-scroll-trigger">More</a>
+                        </div>
+                    </div>
+                    <a href="javascript:;" class="btn btn-hero text-center" data-toggle="modal" data-target="#signinModal">
+                        <span>Sign Up Now</span>
+                        <span class="info">no credit card required</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-light navbar-special">
+            <div class="container">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger pl-0" href="#tracking">Tracking</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#logging">Logging</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#notifications">Notifications</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#integrations">Integrations</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#quickfixes">Fixing Bugs</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#usertracking">User Tracking</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#deploymenttracking">Deployment Tracking</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#uptimemonitoring">Uptime Monitoring</a></li>
+                    <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#extra">Extra goodies</a></li>
+                </ul>
+                <ul class="list-unstyled m-0">
+                    <li><button class="btn btn-primary" data-toggle="modal" data-target="#signinModal">Sign up</button></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Quotes section -->
+        <div class="section section-quotes">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col">
+                            <blockquote class="blockquote text-center">
+                                <p class="mb-2">elmah.io... because it's the infuriating, complex things in life becoming simple that give us joy.</p>
+                                <footer class="blockquote-footer">
+                                    <img src="assets/img/tweets/mikewatson.png" />
+                                    <span>Mike Watson, Founder of seriouslabz</span>
+                                </footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Core section -->
+        <div class="section section-core" id="core">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" style="fill: #0da58e;" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1696 960q0 26-19 45t-45 19h-224q0 171-67 290l208 209q19 19 19 45t-19 45q-18 19-45 19t-45-19l-198-197q-5 5-15 13t-42 28.5-65 36.5-82 29-97 13v-896h-128v896q-51 0-101.5-13.5t-87-33-66-39-43.5-32.5l-15-14-183 207q-20 21-48 21-24 0-43-16-19-18-20.5-44.5t15.5-46.5l202-227q-58-114-58-274h-224q-26 0-45-19t-19-45 19-45 45-19h224v-294l-173-173q-19-19-19-45t19-45 45-19 45 19l173 173h844l173-173q19-19 45-19t45 19 19 45-19 45l-173 173v294h224q26 0 45 19t19 45zm-480-576h-640q0-133 93.5-226.5t226.5-93.5 226.5 93.5 93.5 226.5z"></path>
+                                </svg>
+                            </div>
+                            <h4>Error Management</h4>
+                            <p>Implementing Error Management on your website have never been this easy. With elmah.io we provide you with the <a href="/devops/">DevOps</a> tools you need to stop worrying if your website breaks down. In short: We help you sleep at night.</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" style="fill: #0b8d8b;" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M640 768h512v-192q0-106-75-181t-181-75-181 75-75 181v192zm832 96v576q0 40-28 68t-68 28h-960q-40 0-68-28t-28-68v-576q0-40 28-68t68-28h32v-192q0-184 132-316t316-132 316 132 132 316v192h32q40 0 68 28t28 68z"></path>
+                                </svg>
+                            </div>
+                            <h4>Secure</h4>
+                            <p>By combining 256 bit encrypted SSL with lots of other security features, you won’t have to worry if someone else is watching. Read more about <a href="/security/">our security features</a> and why keeping your data private matters to us.</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" style="fill: #087588;" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="#087588" d="M140.319,139.006c6.731,11.984,14.541,21.004,23.427,27.063c9.021,5.924,19.186,8.887,30.496,8.887c13.597,0,24.704-4.512,33.321-13.531c8.617-9.156,12.925-20.803,12.925-34.938c0-13.599-3.972-24.908-11.914-33.929c-7.944-9.021-17.907-13.531-29.89-13.531c-10.906,0-20.802,4.511-29.688,13.531C160.245,101.443,150.687,116.926,140.319,139.006M115.681,117.398c-6.597-11.849-14.406-20.734-23.427-26.659c-8.886-5.923-19.051-8.885-30.495-8.886c-13.598,0.001-24.705,4.511-33.322,13.531c-8.616,8.886-12.925,20.397-12.925,34.536c0,13.598,3.972,24.906,11.915,33.928c7.943,9.02,17.907,13.531,29.89,13.531c10.905,0,20.733-4.443,29.485-13.33C95.688,155.164,105.314,139.613,115.681,117.398M130.02,154.355c-9.559,18.311-19.589,31.707-30.091,40.188c-10.367,8.484-21.946,12.725-34.736,12.725c-18.176,0-33.592-7.539-46.248-22.619C6.424,169.57,0.163,150.922,0.163,128.707c0-23.561,5.587-42.612,16.762-57.153c11.31-14.541,25.985-21.811,44.026-21.811c12.791,0,24.234,4.174,34.332,12.521c10.098,8.213,20.196,21.812,30.293,40.794c9.155-18.579,19.051-32.245,29.687-40.996c10.637-8.886,22.484-13.329,35.544-13.329c17.906,0,33.188,7.607,45.845,22.821c12.789,15.214,19.185,33.996,19.185,56.345c0,23.427-5.654,42.41-16.964,56.951c-11.175,14.408-25.783,21.609-43.823,21.609c-12.791,0-24.168-3.904-34.131-11.713C151.09,186.803,140.79,173.34,130.02,154.355"/>
+                                </svg>
+                            </div>
+                            <h4>Unlimited Applications</h4>
+                            <p>Create unlimited applications on any plan. We don't want to limit how you run your business, by telling you how to split your logs. With you in control, we give you the best overview on the market.</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" style="fill: #065c85;" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1755 453q37 37 37 90t-37 91l-401 400 150 150-160 160q-163 163-389.5 186.5t-411.5-100.5l-362 362h-181v-181l362-362q-124-185-100.5-411.5t186.5-389.5l160-160 150 150 400-401q38-37 91-37t90 37 37 90.5-37 90.5l-400 401 234 234 401-400q38-37 91-37t90 37z"></path></svg>
+                            </div>
+                            <h4>Best .NET Support</h4>
+                            <p>elmah.io supports all major .NET web frameworks, logging libraries and CMS systems. We are the only solution, which aggregates both crashes and structured logging from log4net, NLog and Serilog.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tracking section -->
+        <div class="section section-tracking" id="tracking">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Tracking Errors</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row justify-content-between">
+                        <div class="col-md-6 col-sm-6 mb-3">
+                            <h4>Intelligent Error Grouping</h4>
+                            <p class="mb-4">Losing track of errors in your web applications? With Intelligent Error Grouping, you are presented with the list of unique errors, rather than the same error in thousand instances. This creates a much better overview of the errors to fix. Where most solutions try to save storage by logging errors once, we store every single error to provide a much better debugging experience.</p>
+                            <h4>Issue Tracking</h4>
+                            <p>When your development team have fixed a bug, simply mark the error group as fixed. When doing so, elmah.io automatically discover if fixed errors reoccur and <a href="http://localhost:54215/features/notifications/">notify you</a> through one or more channels of your choice.</p>
+                            <p><a href="https://blog.elmah.io/mark-errors-as-fixed-dashboards-and-more/" target="_blank" class="blog-link">Dashboards and Issue Tracking</a></p>
+                        </div>
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>Advanced search</h4>
+                            <p>With the powerful search capabilities of elmah.io, navigating your logs are as easy as searching Google. Both full-text queries and advanced structured queries are available out of the box, giving you the best chances of hunting down bugs in your software.</p>
+                            <div class="form-control input-lg">statusCode:404 AND browser:chrome <span class="cursor"></span></div>
+                            <br>
+                            <p>Ever lost track of your log files? With elmah.io that feeling is history!</p>
+                            <p><a href="https://docs.elmah.io/query-messages-using-full-text-search/" target="_blank" class="docs-link">Query messages using full-text search</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logging section -->
+        <div class="section section-logging" id="logging">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Logging</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row justify-content-between">
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>Web Frameworks</h4>
+                            <p>Integrate elmah.io into any of the major web frameworks like ASP.NET MVC, Web API and Nancy to identify crashes. Where most error management systems need a lot of configuration, elmah.io automatically collects the contextual information needed to fix bugs.</p>
+                            <p><span class="docs-link">Handle errors from <a href="https://docs.elmah.io/logging-to-elmah-io-from-elmah/" target="_blank">ASP.NET MVC</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-web-api/" target="_blank">Web API</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-nancy/" target="_blank">Nancy</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-servicestack/" target="_blank">ServiceStack</a> ... <a href="https://docs.elmah.io/" target="_blank">and more</a></span></p>
+                        </div>
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>Logging Frameworks</h4>
+                            <p>Move your structured logging needs to elmah.io using our integrations for popular logging frameworks like <a href="/features/serilog">Serilog</a>, <a href="/features/log4net">log4net</a>, <a href="/features/nlog">NLog</a> and <a href="/features/logary">Logary</a>. Why have your logs spread across multiple servers and files, when elmah.io handles both crashes and structured logging?</p>
+                            <p><span class="docs-link">Logging from <a href="https://docs.elmah.io/logging-to-elmah-io-from-elmah/" target="_blank">ELMAH</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-serilog/" target="_blank">Serilog</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-log4net/" target="_blank">log4net</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-nlog/" target="_blank">NLog</a> ... <a href="https://docs.elmah.io/" target="_blank">and more</a></span></p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>CMS and Blogs</h4>
+                            <p>Keeping an eye on errors happening in your content management system or blog, is as important as in your own code. We provide integrations for popular content management systems and blog software like <a href="/features/umbraco">Umbraco</a>, Sitefinity and BlogEngine.NET.</p>
+                            <p><span class="docs-link">Logging from <a href="https://docs.elmah.io/logging-to-elmah-io-from-umbraco/" target="_blank">Umbraco</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-sitefinity/" target="_blank">Sitefinity</a> | <a href="https://docs.elmah.io/logging-to-elmah-io-from-blogengine-net/" target="_blank">BlogEngine.NET</a> ... <a href="https://docs.elmah.io/" target="_blank">and more</a></span></p>
+                        </div>
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>Custom data</h4>
+                            <p>Help debugging by enriching log messages with contextual data from your business domain. Search crashes by a predefined product, by users on a specific plan or something third. The only limit is your imagination.</p>
+                            <p><a href="https://docs.elmah.io/logging-custom-data/" target="_blank" class="docs-link">Logging custom data</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications section -->
+        <div class="section section-notifications" id="notifications">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-sm-4 col-md-3 notifications">
+                            <svg width="424px" height="858px" viewBox="0 0 424 858" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs>
+                                    <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+                                        <feOffset dx="0" dy="6" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+                                        <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+                                        <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.161 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+                                        <feOffset dx="0" dy="10" in="SourceAlpha" result="shadowOffsetOuter2"></feOffset>
+                                        <feGaussianBlur stdDeviation="10" in="shadowOffsetOuter2" result="shadowBlurOuter2"></feGaussianBlur>
+                                        <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.133 0" in="shadowBlurOuter2" type="matrix" result="shadowMatrixOuter2"></feColorMatrix>
+                                        <feMerge>
+                                            <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                                            <feMergeNode in="shadowMatrixOuter2"></feMergeNode>
+                                            <feMergeNode in="SourceGraphic"></feMergeNode>
+                                        </feMerge>
+                                    </filter>
+                                    <rect id="path-2" x="38.5" y="106" width="348" height="620" rx="5"></rect>
+                                </defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="notifications">
+                                        <rect id="Shadow" fill="#FFFFFF" filter="url(#filter-1)" x="14.3380952" y="14" width="395.32381" height="805" rx="26"></rect>
+                                        <path d="M40.3336803,14 C25.9767151,14 14.3380952,25.6315576 14.3380952,39.9993941 L14.3380952,793.000606 C14.3380952,807.359675 25.9819508,819 40.3336803,819 L383.66632,819 C398.023285,819 409.661905,807.368442 409.661905,793.000606 L409.661905,39.9993941 C409.661905,25.6403252 398.018049,14 383.66632,14 L40.3336803,14 Z M40.0218196,23.5833333 C30.0765333,23.5833333 22.0142857,31.6492463 22.0142857,41.5908902 L22.0142857,791.40911 C22.0142857,801.354409 30.0822014,809.416667 40.0218196,809.416667 L383.97818,809.416667 C393.923467,809.416667 401.985714,801.350754 401.985714,791.40911 L401.985714,41.5908902 C401.985714,31.6455911 393.917799,23.5833333 383.97818,23.5833333 L40.0218196,23.5833333 Z M212,797.916667 C226.83805,797.916667 238.866667,785.902974 238.866667,771.083333 C238.866667,756.263693 226.83805,744.25 212,744.25 C197.16195,744.25 185.133333,756.263693 185.133333,771.083333 C185.133333,785.902974 197.16195,797.916667 212,797.916667 Z M212,794.083333 C224.718329,794.083333 235.028571,783.785883 235.028571,771.083333 C235.028571,758.380784 224.718329,748.083333 212,748.083333 C199.281671,748.083333 188.971429,758.380784 188.971429,771.083333 C188.971429,783.785883 199.281671,794.083333 212,794.083333 Z M39.3741042,106 C38.2654271,106 37.3666667,106.886276 37.3666667,108.008397 L37.3666667,724.991603 C37.3666667,726.10081 38.2630441,727 39.3741042,727 L384.625896,727 C385.734573,727 386.633333,726.113724 386.633333,724.991603 L386.633333,108.008397 C386.633333,106.89919 385.736956,106 384.625896,106 L39.3741042,106 Z M212,44.6666667 C214.119721,44.6666667 215.838095,42.9504249 215.838095,40.8333333 C215.838095,38.7162418 214.119721,37 212,37 C209.880279,37 208.161905,38.7162418 208.161905,40.8333333 C208.161905,42.9504249 209.880279,44.6666667 212,44.6666667 Z M187.141675,60 C186.032499,60 185.133333,60.8944686 185.133333,61.9943127 L185.133333,65.672354 C185.133333,66.7737825 186.021145,67.6666667 187.141675,67.6666667 L236.858325,67.6666667 C237.967501,67.6666667 238.866667,66.7721981 238.866667,65.672354 L238.866667,61.9943127 C238.866667,60.8928842 237.978855,60 236.858325,60 L187.141675,60 Z M158.6505,69.5833333 C161.830082,69.5833333 164.407642,67.0089706 164.407642,63.8333333 C164.407642,60.657696 161.830082,58.0833333 158.6505,58.0833333 C155.470917,58.0833333 152.893357,60.657696 152.893357,63.8333333 C152.893357,67.0089706 155.470917,69.5833333 158.6505,69.5833333 Z" id="phone" stroke="#ADADAD" stroke-width="2" stroke-linecap="round" fill="#FFFFFF"></path>
+                                        <mask id="mask-3" sketch:name="Mask" fill="white">
+                                            <use xlink:href="#path-2"></use>
+                                        </mask>
+                                        <use id="Mask" fill-opacity="0.258208786" fill="#AEAEAE" xlink:href="#path-2"></use>
+                                        <g id="daily-digest" mask="url(#mask-3)">
+                                            <g transform="translate(48.000000, 215.500000)">
+                                                <rect id="Rectangle-4-Copy-3" stroke="#A7A7A7" stroke-width="1" stroke-linecap="round" fill="#FFFFFF" fill-rule="evenodd" x="0" y="1" width="328.471271" height="568.457957" rx="6"></rect>
+                                                <path d="M50.5,354.5 L156.5,354.5 L50.5,354.5 Z M50.5,398.5 L307.5,398.5 L50.5,398.5 Z M50.5,376.5 L229.5,376.5 L50.5,376.5 Z M51.0747664,420.5 L278.925234,420.5 L51.0747664,420.5 Z M50.5,464.5 L200.5,464.5 L50.5,464.5 Z M50.5,442.5 L300.5,442.5 L50.5,442.5 Z" id="Line-Copy-2" stroke="#000000" stroke-width="3" stroke-linecap="square" fill="none"></path>
+                                                <text id="Frequent-errors" stroke="none" fill="none" font-family="Roboto" font-size="20" font-weight="260">
+                                                    <tspan x="20" y="319.929748" fill="#000000">Frequent errors</tspan>
+                                                </text>
+                                                <text id="14" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="normal" line-spacing="22">
+                                                    <tspan x="21.1103516" y="356.929748" fill="#434343">14</tspan>
+                                                    <tspan x="29.5551758" y="378.929748" fill="#434343">8</tspan>
+                                                    <tspan x="29.5551758" y="400.929748" fill="#434343">5</tspan>
+                                                    <tspan x="29.5551758" y="422.929748" fill="#434343">3</tspan>
+                                                    <tspan x="29.5551758" y="444.929748" fill="#434343">1</tspan>
+                                                    <tspan x="29.5551758" y="466.929748" fill="#434343">1</tspan>
+                                                </text>
+                                                <path d="M21,99.8673808 L55.2377622,99.8673808 L55.2377622,231.613002 L21,231.613002 L21,99.8673808 Z M274.762238,154.76139 L309,154.76139 L309,231.613002 L274.762238,231.613002 L274.762238,154.76139 Z M232.468531,85.2289785 L266.706294,85.2289785 L266.706294,231.613002 L232.468531,231.613002 L232.468531,85.2289785 Z M190.174825,154.76139 L224.412587,154.76139 L224.412587,231.613002 L190.174825,231.613002 L190.174825,154.76139 Z M147.881119,193.797129 L182.118881,193.797129 L182.118881,232.832869 L147.881119,232.832869 L147.881119,193.797129 Z M105.587413,130.364052 L139.825175,130.364052 L139.825175,231.613002 L105.587413,231.613002 L105.587413,130.364052 Z M63.2937063,154.76139 L97.5314685,154.76139 L97.5314685,231.613002 L63.2937063,231.613002 L63.2937063,154.76139 Z" id="bars" stroke="none" fill="#0DA58E" fill-rule="evenodd"></path>
+                                                <text id="20" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="420">
+                                                    <tspan x="30.4746094" y="255" fill="#585858">20</tspan>
+                                                </text>
+                                                <text id="15" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="420">
+                                                    <tspan x="284.474609" y="255" fill="#585858">15</tspan>
+                                                </text>
+                                                <text id="23" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="420">
+                                                    <tspan x="241.474609" y="255" fill="#585858">23</tspan>
+                                                </text>
+                                                <text id="16" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="420">
+                                                    <tspan x="198.474609" y="255" fill="#585858">16</tspan>
+                                                </text>
+                                                <text id="6" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="420">
+                                                    <tspan x="161.737305" y="255" fill="#585858">6</tspan>
+                                                </text>
+                                                <text id="18" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="420">
+                                                    <tspan x="113.474609" y="255" fill="#585858">18</tspan>
+                                                </text>
+                                                <text id="16-copy" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="420">
+                                                    <tspan x="71.4746094" y="255" fill="#585858">16</tspan>
+                                                </text>
+                                                <text id="Daily-digest" stroke="none" fill="none" font-family="Roboto" font-size="20" font-weight="bold">
+                                                    <tspan x="20" y="51.9297483" fill="#1D956F">Daily digest</tspan>
+                                                </text>
+                                            </g>
+                                        </g>
+                                        <g id="new-error" mask="url(#mask-3)">
+                                            <g transform="translate(48.000000, 215.500000)">
+                                                <rect id="Rectangle-4-Copy-3" stroke="#A7A7A7" stroke-width="1" stroke-linecap="round" fill="#FFFFFF" fill-rule="evenodd" x="0" y="1" width="328.471271" height="568.457957" rx="6"></rect>
+                                                <rect id="Rectangle-4-Copy-4" stroke="none" fill="#000000" fill-rule="evenodd" x="20" y="338.929748" width="288" height="127.070252" rx="6"></rect>
+                                                <path d="M33.5,354.5 L139.5,354.5 L33.5,354.5 Z M73.5,450.5 L221.5,450.5 L73.5,450.5 Z M53.5,438.5 L226.5,438.5 L53.5,438.5 Z M73.5,426.5 L179.5,426.5 L73.5,426.5 Z M53.5,414.5 L203.5,414.5 L53.5,414.5 Z M73.5,402.5 L249.5,402.5 L73.5,402.5 Z M73.5,390.5 L179.5,390.5 L73.5,390.5 Z M53.5,378.5 L203.5,378.5 L53.5,378.5 Z M53.5,366.5 L232.5,366.5 L53.5,366.5 Z" id="Line" stroke="#999999" stroke-width="3" stroke-linecap="square" fill="none"></path>
+                                                <text id="Stacktrace" stroke="none" fill="none" font-family="Roboto" font-size="20" font-weight="260">
+                                                    <tspan x="20" y="324.929748" fill="#000000">Stacktrace</tspan>
+                                                </text>
+                                                <text id="Time" stroke="none" fill="none" font-family="Roboto" font-size="15" font-weight="normal" line-spacing="22">
+                                                    <tspan x="65.3891602" y="86.9297483" fill="#434343">Time</tspan>
+                                                    <tspan x="44.5883789" y="108.929748" fill="#434343">Severity</tspan>
+                                                    <tspan x="70.809082" y="130.929748" fill="#434343">URL</tspan>
+                                                    <tspan x="20.1767578" y="152.929748" fill="#434343">StatusCode</tspan>
+                                                    <tspan x="66.7441406" y="174.929748" fill="#434343">Host</tspan>
+                                                    <tspan x="66.2827148" y="196.929748" fill="#434343">Error</tspan>
+                                                    <tspan x="22.4545898" y="218.929748" fill="#434343">Application</tspan>
+                                                    <tspan x="51.5610352" y="240.929748" fill="#434343">Source</tspan>
+                                                    <tspan x="67.9306641" y="262.929748" fill="#434343">User</tspan>
+                                                    <tspan x="99" y="284.929748" fill="#434343"></tspan>
+                                                </text>
+                                                <text id="New-error" stroke="none" fill="none" font-family="Roboto" font-size="20" font-weight="bold">
+                                                    <tspan x="20" y="51.9297483" fill="#1D956F">New error</tspan>
+                                                </text>
+                                                <path d="M113.5,84.5 L219.5,84.5 L113.5,84.5 Z M113.5,260.5 L261.5,260.5 L113.5,260.5 Z M113.5,238.5 L286.5,238.5 L113.5,238.5 Z M113.5,216.5 L219.5,216.5 L113.5,216.5 Z M113.5,194.5 L263.5,194.5 L113.5,194.5 Z M113.5,172.5 L289.5,172.5 L113.5,172.5 Z M113.5,150.5 L219.5,150.5 L113.5,150.5 Z M113.5,128.5 L263.5,128.5 L113.5,128.5 Z M113.5,106.5 L292.5,106.5 L113.5,106.5 Z" id="Line-Copy" stroke="#000000" stroke-width="3" stroke-linecap="square" fill="none"></path>
+                                            </g>
+                                        </g>
+                                        <path d="M48,173 L315,173 L315,193 L48,193 L48,173 Z M118,152 L298,152 L298,158 L118,158 L118,152 Z M48,152 L96,152 L96,158 L48,158 L48,152 Z M118,129 L348,129 L348,135 L118,135 L118,129 Z M48,129 L96,129 L96,135 L48,135 L48,129 Z" id="mail-details" fill-opacity="0.258208786" fill="#AEAEAE" mask="url(#mask-3)"></path>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <div class="col-md-9 col-sm-8">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h2 class="text-left">Notifications</h2>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 mb-3">
+                                    <h4>Receive an email when new errors occur</h4>
+                                    <p>You can even specify custom queries for only notifying you when messages with a specific pattern are logged.</p>
+                                    <p><a href="https://blog.elmah.io/receive-an-email-when-a-new-error-is-logged/" target="_blank" class="blog-link">Receive an email when a new error is logged</a></p>
+                                </div>
+                                <div class="col-md-12 col-lg-6 mb-3">
+                                    <h4>Get notified on Slack, HipChat or Microsoft Teams</h4>
+                                    <p>With our custom integrations for Slack, HipChat and Microsoft Teams, notifying your team about issues is easier than ever.</p>
+                                    <p><span class="docs-link"><a href="https://docs.elmah.io/elmah-io-apps-slack/" target="_blank">Integrate with Slack</a> | <a href="https://docs.elmah.io/elmah-io-apps-hipchat/" target="_blank">HipChat</a> | <a href="https://docs.elmah.io/elmah-io-apps-teams/" target="_blank">Teams</a></span></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12 col-lg-6 mb-3">
+                                    <h4>Receive a daily overview email</h4>
+                                    <p>Setup a daily email on your logs, to avoid having to login constantly. Our daily digest email shows you exactly what happened during the last 24 hours and if something needs special attention.</p>
+                                    <p><a href="https://blog.elmah.io/daily-digest-email/" target="_blank" class="blog-link">Daily Digest Email</a></p>
+                                </div>
+                                <div class="col-md-12 col-lg-6 mb-3">
+                                    <h4>Receive an email when error impact increases</h4>
+                                    <p>If some errors happen more frequently than usual, you want to know about it. With the error occurrence increase mail, you will get a heads-up when an error suddenly has a larger impact on your system.</p>
+                                    <p><a href="https://blog.elmah.io/new-error-impact-email-highlights-repeating-errors/" target="_blank" class="blog-link">Email on error impact increase</a></p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <p class="text-center mb-0"><a href="/features/notifications/" style="color: white;">Learn about notifications using email, Slack, HipChat and more</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Integrations section -->
+        <div class="section section-integrations" id="integrations">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Integrations</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-sm-4 mb-3">
+                            <h4>App Store</h4>
+                            <p>Integrate with 500+ online services like Slack and GitHub with a few mouse clicks. We support a range of native integrations through our <a href="/features/appstore">App Store</a>. Combined with the powers of Zapier, it is possible to integrate elmah.io with more than 500 services.</p>
+                            <p><a href="/features/appstore/" target="_blank" class="docs-link">Check out the elmah.io App Store</a></p>
+                        </div>
+                        <div class="col-sm-8 mb-3">
+                            <h4>Rule Engine</h4>
+                            <p>Use our advanced rule engine to integrate with other online services or execute actions when errors occur. Imagine getting a notification on Slack when critical errors start happening on your website. The possibilities with our rule engine are endless.</p>
+                            <p><a href="https://docs.elmah.io/creating-rules-to-perform-actions-on-messages/" target="_blank" class="docs-link">Creating Rules to Perform Actions on Messages</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <h4>API</h4>
+                            <p>Extend elmah.io to your own needs using our API. Integrate logs into your custom tools or check out some of the cool integrations other people are doing.</p>
+                            <p><a href="/api/" target="_blank" class="docs-link">API documentation</a><p>
+                        </div>
+                        <div class="col-md-8 mb-3 integrations">
+                            <svg width="1145px" height="256px" viewBox="0 0 1145 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <defs></defs>
+                                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="Integrations">
+                                        <path d="M38,136.5 L443,136.5" id="Line-Copy" stroke="#FFFFFF" stroke-width="10"></path>
+                                        <path d="M449.5,187 L889.135837,187 L939,138" id="Path-112" stroke="#FFFFFF" stroke-width="10" transform="translate(694.250000, 162.500000) scale(-1, 1) translate(-694.250000, -162.500000) "></path>
+                                        <path d="M449.5,137 L959.135837,137 L1039,58" id="Path-112-Copy" stroke="#FFFFFF" stroke-width="10" transform="translate(744.250000, 97.500000) scale(-1, -1) translate(-744.250000, -97.500000) "></path>
+                                        <path d="M1040,57 L1140,57" id="Path-112-Copy-2" stroke="#FFFFFF" stroke-width="10" stroke-dasharray="10,10" transform="translate(1090.000000, 57.000000) scale(-1, -1) translate(-1090.000000, -57.000000) "></path>
+                                        <path d="M940,187 L1040,187" id="Path-112-Copy-3" stroke="#FFFFFF" stroke-width="10" stroke-dasharray="10,10" transform="translate(990.000000, 187.000000) scale(-1, -1) translate(-990.000000, -187.000000) "></path>
+                                        <text id="Slack" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="151.0625" y="92">Slack</tspan>
+                                        </text>
+                                        <text id="HipChat" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="2.19140625" y="92">HipChat</tspan>
+                                        </text>
+                                        <text id="Zapier" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="490.101562" y="140.880859">Zapier</tspan>
+                                        </text>
+                                        <text id="Trello" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="580.612305" y="236">Trello</tspan>
+                                        </text>
+                                        <path d="M606.25,187 L606.25,204" id="Line" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M716.25,187 L716.25,204" id="Line-Copy-2" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M826.25,187 L826.25,204" id="Line-Copy-3" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M936,187 L936,204" id="Line-Copy-4" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M606.25,40 L606.25,57" id="Line-Copy-8" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M716.25,60 L716.25,77" id="Line-Copy-5" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M826.25,40 L826.25,57" id="Line-Copy-6" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M936.25,40 L936.25,57" id="Line-Copy-7" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <path d="M1036,40 L1036,57" id="Line-Copy-9" stroke="#FFFFFF" stroke-width="6" stroke-linecap="square"></path>
+                                        <ellipse id="Oval-33" fill="#FFFFFF" cx="448" cy="136.5" rx="22" ry="22"></ellipse>
+                                        <circle id="Oval-33-Copy-7" fill="#FF4A00" cx="448" cy="136.5" r="19"></circle>
+                                        <ellipse id="Oval-33-Copy-2" fill="#FFFFFF" cx="38" cy="136.5" rx="22" ry="22"></ellipse>
+                                        <ellipse id="Oval-33-Copy-6" fill="#2D486F" cx="38" cy="136.5" rx="19" ry="19"></ellipse>
+                                        <ellipse id="Oval-33-Copy-3" fill="#FFFFFF" cx="176" cy="138.5" rx="22" ry="22"></ellipse>
+                                        <circle id="Oval-33-Copy-5" fill="#72C5CC" cx="176" cy="138.5" r="19"></circle>
+                                        <circle id="Oval-33-Copy-4" fill="#FFFFFF" cx="312" cy="137.5" r="44"></circle>
+                                        <circle id="Oval-33-Copy-13" fill="#065C85" cx="312" cy="137.5" r="34"></circle>
+                                        <text id="Evernote" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="675.988281" y="236">Evernote</tspan>
+                                        </text>
+                                        <text id="MailChimp" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="777.21875" y="236">MailChimp</tspan>
+                                        </text>
+                                        <text id="Jira" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="918.537109" y="236">Jira</tspan>
+                                        </text>
+                                        <text id="SalesForce" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="555.392578" y="23">SalesForce</tspan>
+                                        </text>
+                                        <text id="Basecamp" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="667.863281" y="103">Basecamp</tspan>
+                                        </text>
+                                        <text id="Podio" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="799.586914" y="23">Podio</tspan>
+                                        </text>
+                                        <text id="Zendesk" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="897.321289" y="23">Zendesk</tspan>
+                                        </text>
+                                        <text id="Asana" font-family="Lato" font-size="20" font-weight="600" fill="#FFFFFF">
+                                            <tspan x="1017.11621" y="23">Asana</tspan>
+                                        </text>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center mb-0"><a href="/features/appstore/" style="color: white;">Learn about apps and integrations through the elmah.io App Store</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quickfixes section -->
+        <div class="section section-quickfixes" id="quickfixes">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Fixing Bugs</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <h4>Quick Fixes</h4>
+                            <p>Quick Fixes provides relevant help on the errors logged from your applications. If you use quick fixes with Visual Studio and ReSharper, you know the concept already. While we cannot make changes directly in your code, we can guide you to the best documentation, video tutorials or online tools, to help you fix bugs fast.</p>
+                            <p><a href="https://blog.elmah.io/we-dont-just-log-your-errors-we-help-you-fix-them/" target="_blank" class="blog-link">We don't just log your errors. We help you fix them!</a></p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h4>Stack Overflow</h4>
+                            <p>Ever searched Stack Overflow, trying to find a solution to an error? We sure have. With the elmah.io integration for Stack Overflow, we will automatically do a search for an answer. Our revolutionary algorithm matches all potential answers against a wide range of criteria's and displays the best answer.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User tracking section -->
+        <div class="section section-usertracking" id="usertracking">
+            <div class="container">
+                <div class="section-header">
+                    <h2>User Tracking</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <h4>Extended User Details</h4>
+                            <p>With the Extended User Details, you will be able to learn more about the users experiencing problems on your website. Browse their social media profiles or send them a mail directly from elmah.io.</p>
+                            <p><a href="https://blog.elmah.io/extended-user-details/" target="_blank" class="blog-link">Extended User Details</a></p>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <h4>User Impact Statistics</h4>
+                            <p>When a user experience a single error, it may not be a problem. When the same user keep on finding bugs on your site, you can rest assured that the user will head on to your competitor. Get statistics about how impacted a user is by errors on your site.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Deployment tracking section -->
+        <div class="section section-deploymenttracking" id="deploymenttracking">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Deployment Tracking</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1504 448q0-40-28-68t-68-28-68 28-28 68 28 68 68 28 68-28 28-68zm224-288q0 249-75.5 430.5t-253.5 360.5q-81 80-195 176l-20 379q-2 16-16 26l-384 224q-7 4-16 4-12 0-23-9l-64-64q-13-14-8-32l85-276-281-281-276 85q-3 1-9 1-14 0-23-9l-64-64q-17-19-5-39l224-384q10-14 26-16l379-20q96-114 176-195 188-187 358-258t431-71q14 0 24 9.5t10 22.5z" fill="#fff"></path></svg>
+                            </div>
+                            <h4>Deployment Tracking</h4>
+                            <p>Deployment tracking on elmah.io gives you better performance visibility of the different versions of your software products. Spot trends and help you avoid making the same mistakes over and over again.</p>
+                            <p><a href="https://docs.elmah.io/setup-deployment-tracking/" target="_blank" class="docs-link">Set Up Deployment Tracking</a></p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1216 864q0-14-9-23l-352-352q-9-9-23-9t-23 9l-351 351q-10 12-10 24 0 14 9 23t23 9h224v352q0 13 9.5 22.5t22.5 9.5h192q13 0 22.5-9.5t9.5-22.5v-352h224q13 0 22.5-9.5t9.5-22.5zm640 288q0 159-112.5 271.5t-271.5 112.5h-1088q-185 0-316.5-131.5t-131.5-316.5q0-130 70-240t188-165q-2-30-2-43 0-212 150-362t362-150q156 0 285.5 87t188.5 231q71-62 166-62 106 0 181 75t75 181q0 76-41 138 130 31 213.5 135.5t83.5 238.5z" fill="#fff"></path></svg>
+                            </div>
+                            <h4>API</h4>
+                            <p>Notifying elmah.io about new releases of your software, is as simple as calling a REST endpoint. We even support Swagger, to allow integration from practically any programming language and framework.</p>
+                            <p><a href="https://api.elmah.io/swagger/ui/index" target="_blank" class="docs-link">API Documentation</a></p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><g id="#ffffffff"><path fill="#FFFFFF" d="M131.014,0h11.951c43.023,0.575,81.756,36.905,83.809,80.06c2.946,25.757-19.576,47.958-12.143,73.779c4.452,15.633,19.733,23.29,31.041,33.286c4.038,3.589,9.293,12.461,1.764,15.28c-8.715-0.351-16.18-5.382-23.645-9.354c8.138,10.668,19.545,20.823,21.018,34.854c-6.92,8.427-19.703,2.403-26.559-3.395c-13.008-9.291-19.637-26.494-35.465-31.684c-9.771,20.022,3.363,48.118-16.85,63.464h-5.351c-22.138-10.732-15.827-39.085-25.854-57.537c-2.018-6.119-10.38-7.111-14.096-1.923c-13.583,13.521-20.312,32.583-35.112,45.172c-5.19,5.062-15.41,12.622-20.919,4.005c-8.81-16.723,2.306-35.176,9.162-50.555c-19.542,13.137-44.468,26.43-68.206,16.372c3.011-5.832,7.336-10.861,12.943-14.321c15.538-10.476,32.614-22.169,38.699-40.879c4.71-13.838-2.753-27.263-7.463-39.918c-11.118-28.094-3.299-61.22,15.538-84.127C81.326,13.039,106.123,2.114,131.014,0z"/></g></svg>
+                            </div>
+                            <h4>Octopus Deploy</h4>
+                            <p>With the native support for Octopus Deploy, setting up deployment notification is only a few clicks away. We automatically extract common attributes like the version number and release notes.</p>
+                            <p><a href="https://docs.elmah.io/setup-deployment-tracking/#using-octopus-deploy" target="_blank" class="docs-link">Set up on Octopus</a></p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3">
+                            <div class="icon">
+                                <svg width="256px" height="256px" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><g id="#ffffffff"><path fill="#FFFFFF" d="M92.169,102.174c33.267-33.108,66.249-66.534,99.674-99.485c21.273,7.639,41.979,16.823,63.156,24.808v202.285c-20.895,8.584-41.916,16.823-62.842,25.219c-33.393-33.078-66.501-66.408-99.736-99.612c-21.463,16.444-42.927,32.921-64.515,49.206c-8.332-4.608-17.011-8.458-25.407-12.878V65.624c9.059-3.441,17.643-11.109,27.05-11.741C50.192,70.265,71.527,85.763,92.169,102.174 M125.563,128.75c22.093,17.359,44.314,34.592,66.691,51.604c0-34.372,0.094-68.744-0.063-103.114C169.813,94.22,147.688,111.453,125.563,128.75M27.939,91.033c-0.032,25.124-0.126,50.277,0.032,75.401c12.561-12.594,25.059-25.219,37.684-37.685C53.157,116.092,40.597,103.531,27.939,91.033z"/></g></svg>
+                            </div>
+                            <h4>Visual Studio Team Services</h4>
+                            <p>Already a Visual Studio Team Services user? Why not notify elmah.io about new versions of your software. The version number, release note and responsible are automatically send to the elmah.io API.</p>
+                            <p><a href="https://docs.elmah.io/setup-deployment-tracking/#using-visual-studio-team-services" target="_blank" class="docs-link">Set up on VSTS</a></p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center mb-0"><a href="/features/deploymenttracking/" style="color: white;">Learn more about Deployment Tracking and releasing new software with confidence</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Uptime monitoring section -->
+        <div class="section section-uptimemonitoring" id="uptimemonitoring">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Uptime Monitoring</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <p class="mb-4">With elmah.io's uptime checks, monitoring your endpoints is built into your favorite error management tool. Integrating error logs with uptime monitoring is extremely powerful, since you can reuse both notifications and quick fixes already available.</p>
+                            <h4>Multi-region</h4>
+                            <p class="mb-4">Where similar options ping from a single location only, Uptime Monitoring constantly test your endpoints from 5 different locations. This ensure a notification as soon as your endpoint starts failing.</p>
+                            <h4>Better diagnostics</h4>
+                            <p class="mb-4">When integrating uptime monitoring and error logging, we provide you with both sides of the story. Armed with detailed error information, you will be able to fix bugs faster.</p>
+                        </div>
+                        <div class="col-sm-8">
+                            <img src="assets/img/uptime_monitoring_map.gif" class="img-fluid mb-4" />
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center mb-0"><a href="/features/uptimemonitoring/" style="color: white;">Learn about Uptime Monitoring .NET web applications</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Uptime monitoring section -->
+        <div class="section section-extra" id="extra">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Extra goodies</h2>
+                </div>
+                <div class="section-body">
+                    <div class="row justify-content-between">
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>Organization and User management</h4>
+                            <p>Manage your organization with individual user access and authorization levels to your logs. You control the level of access, making it possible for your co-workers or even external parties, to monitor company logs.</p>
+                            <p><a href="https://docs.elmah.io/managing-organisations-and-users/" target="_blank" class="docs-link">Managing Organizations and Users</a></p>
+                        </div>
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>Mobile, tablet, desktop and up</h4>
+                            <p>Our dashboards are optimized to give a great overview of your application state. You can even use the Kiosk Mode to put the dashboard on a large flat screen.</p>
+                        </div>
+                    </div>
+                    <div class="row justify-content-between">
+                        <div class="col-md-5 col-sm-6 mb-3">
+                            <h4>Goodie Bag</h4>
+                            <p>Business, Business+ and Enterprise customers on elmah.io get access to great discounts on popular tools like MyGet, OzCode and NHibernate Profiler.</p>
+                            <p><a href="/goodiebag/" target="_blank" class="docs-link">Check out the elmah.io Goodie Bag</a></p>
+                        </div>
+                        <div class="col-md-5 col-sm-6 mb-0">
+                            <h4>Invoicing</h4>
+                            <p>Make your accountant a happy camper with the invoicing feature. Invoices may not be a very sexy feature, but it is necessary to document how you spend the money in your business.</p>
+                            <p><a href="https://blog.elmah.io/invoicing/" target="_blank" class="blog-link">Invoicing</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quotes section -->
+        <div class="section section-quotes">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col">
+                            <blockquote class="blockquote text-center">
+                            	<div class="row align-items-center">
+    	                        	<div class="col-12 col-md-9">
+    		                            <p class="mb-2">If you would take elmah.io away from our business now, it would be like chopping off an arm. <br> Great product guys!</p>
+    		                            <footer class="blockquote-footer">
+    		                                <img src="assets/img/tweets/mattross.jpg" />
+    		                                <span>Matt Ross, CEO at Tronik</span>
+    		                            </footer>
+    	                            </div>
+    	                            <div class="col-12 col-md-3">
+    	                            	<button class="btn btn-primary my-3" data-toggle="modal" data-target="#signinModal">Start logging now</button>
+    	                        	</div>
+                            	</div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+        	<div class="pre-footer">
+    	    	<div class="container">
+    	    		<div class="company-logo">
+    					<img class="img-fluid" src="assets/img/elmahio.png" alt="elmah.io">
+    				</div>
+    				<a href="javascript:;" class="btn btn-primary float-right" data-toggle="modal" data-target="#signinModal"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+    			</div>
+    	    </div>
+        	<div class="links">
+        		<div class="container">
+        			<div class="row">
+        				<div class="col">
+        					<h5>Product</h5>
+        					<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/features/">Features</a></li>
+    							<li><a href="https://elmah.io/pricing/">Pricing</a></li>
+    							<li><a href="https://elmah.io/api">API</a></li>
+    							<li><a href="https://headwayapp.co/elmah-io-changelog" rel="noopener noreferrer" target="_blank">Changelog</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Company</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/about/">About</a></li>
+    							<li><a href="https://elmah.io/contact/">Contact</a></li>
+    							<li><a href="https://blog.elmah.io/">Blog</a></li>
+    							<li><a href="https://docs.elmah.io/">Docs</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Learn</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+    							<li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+    							<li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
+    							<li><a href="https://elmah.io/tools/">Free Tools</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Guides</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+    							<li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+    							<li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+    						</ul>
+        				</div>
+                        <div class="col">
+                            <h5>Social</h5>
+                            <ul class="list-unstyled social">
+                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="copyright">
+        		<div class="container">
+        			<div class="text-center">
+    					<p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
+    					<p><a href="https://elmah.io/termsofuse/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+    				</div>
+        		</div>
+        	</div>
+        </footer>
+
+        <!-- SignIn Modal -->
+        <div class="modal fade" id="signinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-sm" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Sign up using...</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="signinbuttons">
+                            <a href="/authentication/redirect/Twitter" class="twitter">
+                                <i class="fab fa-twitter"></i> Twitter
+                            </a>
+                            <a href="/authentication/redirect/Facebook" class="facebook">
+                                <i class="fab fa-facebook-f"></i> Facebook
+                            </a>
+                            <a href="/authentication/redirect/windowslive" class="live">
+                                <i class="fab fa-windows"></i> Microsoft
+                            </a>
+                            <a href="/authentication/redirect/Google" class="google">
+                                <i class="fab fa-google-plus-g"></i> Google
+                            </a>
+
+                            <div class="delimiter"><span> or </span></div>
+
+                            <p class="text-muted mt-4">Sign up using email and password</p>
+
+                            <form id="signUpUsernameForm" data-bind="validationOptions: {messageTemplate: 'errorTemplate'}">
+                                <div class="form-group">
+                                    <input type="email" class="form-control" data-bind="value: username, disable: working" placeholder="Email" title="This field is required." data-orig-title="" autocomplete="off">
+                                    <span class="errormessage" data-bind="if: field.isModified() &amp;&amp; !field.isValid()"></span>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" class="form-control" data-bind="value: password, disable: working" placeholder="Password" title="This field is required." data-orig-title="" autocomplete="off">
+                                    <span class="errormessage" data-bind="if: field.isModified() &amp;&amp; !field.isValid()"></span>
+                                </div>
+                                <button type="submit" class="btn btn-success" data-bind="click: signUp, disable: working">Sign up</button> <span style="padding-left: 5px;">or</span> <a href="#" style="color: #0da58e; display: inline; padding: 0;" data-bind="click: signIn">sign in</a>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+        <script src="assets/js/bootstrap.min.js"></script>
+        <script src="assets/js/vendor/owl/owl.carousel.min.js"></script>
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
