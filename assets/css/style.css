@@ -272,6 +272,13 @@ footer .copyright a {
     color: #777777;
     margin: 0;
 }
+.section .section-body h2.title-body {
+	padding: 0px;
+    margin: 0 auto 20px;
+    font-size: 1.75rem;
+    line-height: 50px;
+    display: inline-block;
+}
 
 /* ========= Hero section ========= */
 .section.section-hero {
@@ -720,6 +727,10 @@ footer .copyright a {
 /* ========= Plan section ========= */
 .section.section-plan {
 	padding: 40px 0px;
+}
+.section.section-plan a:not([href]):not([tabindex]) {
+	color: #0da58e;
+	cursor: pointer;
 }
 .list-prices {
 	border-radius: 6px;
