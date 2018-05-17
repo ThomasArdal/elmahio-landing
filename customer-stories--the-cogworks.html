@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>ELMAH Cloud Logging - Error Management for .NET websites | elmah.io</title>
+        <meta name="description" content="Cloud logging for .NET web applications using ELMAH. Find bugs before you go live. Powerful search, API, integration with Slack, GitHub, Visual Studio and more" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="content/bootstrap.css" />
+        <link rel="stylesheet" href="content/fontawesome-all.css">
+        <link rel="stylesheet" href="content/owl.carousel.css" />
+        <link rel="stylesheet" href="content/style.css" />
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-overlap navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="https://elmah.io/"><img src="images/logo.png" alt="elmah.io"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-btn">
+                        <li class="nav-item"><a class="btn btn-outline-light" href="#">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero section -->
+        <div class="section section-hero">
+            <div class="container">
+                <div class="section-body">
+                    <h1 class="text-center">The Cogworks</h1>
+                    <h2 class="text-center">elmah.io opened up a whole new window to our code base</h2>
+                    <a href="#" class="btn btn-hero text-center">
+                        <span>Sign Up Now</span>
+                        <span class="info">no credit card required</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h2 class="title-body">Meet The Cogworks</h2>
+                            <p>We are a team of web developers, designers, content editors and project managers, specialised in using the Umbraco platform.</p>
+                            <p>We don't mean to blow our own trumpet (ok, well maybe a little bit) but we've got 10 Certified Umbraco Developers, 3 Certified Masters, 2 Umbraco MVPs and all Project Managers are certified to Umbraco Fundamentals Level, giving our team an expert understanding of the Umbraco CMS from all angles.</p>
+                            <p>We're also proud hosts of the Official annual Umbraco UK Festival, the biggest Umbraco conference after Codegarden. If you've not heard about the Umbraco Festival, which has been going since 2009, head over to the Umbraco UK Festival website to see what you're missing out on.</p>
+                            <p>Website: <a href="https://thecogworks.com/" rel="noopener noreferrer" target="_blank">thecogworks.com</a></p>
+                        </div>
+                        <div class="col-md-6 text-center">
+                            <img src="images/customerstories/thecogworks_large.png" alt="The Cogworks" class="img-thumbnail img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quotes section -->
+        <div class="section section-quotes">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col">
+                            <blockquote class="blockquote text-center">
+                                <div class="row align-items-center">
+                                    <div class="col-12 col-md-9">
+                                        <p class="mb-2">Now it's a case of how did we ever live without elmah.io?</p>
+                                        <footer class="blockquote-footer">
+                                            <img src="images/tweets/ismailmayat.jpg">
+                                            <span>Ismail Mayat, Senior Web Developer at The Cogworks</span>
+                                        </footer>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <a class="btn btn-primary my-3" href="#">Sign up now</a>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section section-cog">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                            <div class="icon">
+                                <svg width="256" height="256" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 128q209 0 385.5 103t279.5 279.5 103 385.5-103 385.5-279.5 279.5-385.5 103-385.5-103-279.5-279.5-103-385.5 103-385.5 279.5-279.5 385.5-103zm274 521q-2 1-9.5 9.5t-13.5 9.5q2 0 4.5-5t5-11 3.5-7q6-7 22-15 14-6 52-12 34-8 51 11-2-2 9.5-13t14.5-12q3-2 15-4.5t15-7.5l2-22q-12 1-17.5-7t-6.5-21q0 2-6 8 0-7-4.5-8t-11.5 1-9 1q-10-3-15-7.5t-8-16.5-4-15q-2-5-9.5-11t-9.5-10q-1-2-2.5-5.5t-3-6.5-4-5.5-5.5-2.5-7 5-7.5 10-4.5 5q-3-2-6-1.5t-4.5 1-4.5 3-5 3.5q-3 2-8.5 3t-8.5 2q15-5-1-11-10-4-16-3 9-4 7.5-12t-8.5-14h5q-1-4-8.5-8.5t-17.5-8.5-13-6q-8-5-34-9.5t-33-.5q-5 6-4.5 10.5t4 14 3.5 12.5q1 6-5.5 13t-6.5 12q0 7 14 15.5t10 21.5q-3 8-16 16t-16 12q-5 8-1.5 18.5t10.5 16.5q2 2 1.5 4t-3.5 4.5-5.5 4-6.5 3.5l-3 2q-11 5-20.5-6t-13.5-26q-7-25-16-30-23-8-29 1-5-13-41-26-25-9-58-4 6-1 0-15-7-15-19-12 3-6 4-17.5t1-13.5q3-13 12-23 1-1 7-8.5t9.5-13.5.5-6q35 4 50-11 5-5 11.5-17t10.5-17q9-6 14-5.5t14.5 5.5 14.5 5q14 1 15.5-11t-7.5-20q12 1 3-17-4-7-8-9-12-4-27 5-8 4 2 8-1-1-9.5 10.5t-16.5 17.5-16-5q-1-1-5.5-13.5t-9.5-13.5q-8 0-16 15 3-8-11-15t-24-8q19-12-8-27-7-4-20.5-5t-19.5 4q-5 7-5.5 11.5t5 8 10.5 5.5 11.5 4 8.5 3q14 10 8 14-2 1-8.5 3.5t-11.5 4.5-6 4q-3 4 0 14t-2 14q-5-5-9-17.5t-7-16.5q7 9-25 6l-10-1q-4 0-16 2t-20.5 1-13.5-8q-4-8 0-20 1-4 4-2-4-3-11-9.5t-10-8.5q-46 15-94 41 6 1 12-1 5-2 13-6.5t10-5.5q34-14 42-7l5-5q14 16 20 25-7-4-30-1-20 6-22 12 7 12 5 18-4-3-11.5-10t-14.5-11-15-5q-16 0-22 1-146 80-235 222 7 7 12 8 4 1 5 9t2.5 11 11.5-3q9 8 3 19 1-1 44 27 19 17 21 21 3 11-10 18-1-2-9-9t-9-4q-3 5 .5 18.5t10.5 12.5q-7 0-9.5 16t-2.5 35.5-1 23.5l2 1q-3 12 5.5 34.5t21.5 19.5q-13 3 20 43 6 8 8 9 3 2 12 7.5t15 10 10 10.5q4 5 10 22.5t14 23.5q-2 6 9.5 20t10.5 23q-1 0-2.5 1t-2.5 1q3 7 15.5 14t15.5 13q1 3 2 10t3 11 8 2q2-20-24-62-15-25-17-29-3-5-5.5-15.5t-4.5-14.5q2 0 6 1.5t8.5 3.5 7.5 4 2 3q-3 7 2 17.5t12 18.5 17 19 12 13q6 6 14 19.5t0 13.5q9 0 20 10.5t17 19.5q5 8 8 26t5 24q2 7 8.5 13.5t12.5 9.5l16 8 13 7q5 2 18.5 10.5t21.5 11.5q10 4 16 4t14.5-2.5 13.5-3.5q15-2 29 15t21 21q36 19 55 11-2 1 .5 7.5t8 15.5 9 14.5 5.5 8.5q5 6 18 15t18 15q6-4 7-9-3 8 7 20t18 10q14-3 14-32-31 15-49-18 0-1-2.5-5.5t-4-8.5-2.5-8.5 0-7.5 5-3q9 0 10-3.5t-2-12.5-4-13q-1-8-11-20t-12-15q-5 9-16 8t-16-9q0 1-1.5 5.5t-1.5 6.5q-13 0-15-1 1-3 2.5-17.5t3.5-22.5q1-4 5.5-12t7.5-14.5 4-12.5-4.5-9.5-17.5-2.5q-19 1-26 20-1 3-3 10.5t-5 11.5-9 7q-7 3-24 2t-24-5q-13-8-22.5-29t-9.5-37q0-10 2.5-26.5t3-25-5.5-24.5q3-2 9-9.5t10-10.5q2-1 4.5-1.5t4.5 0 4-1.5 3-6q-1-1-4-3-3-3-4-3 7 3 28.5-1.5t27.5 1.5q15 11 22-2 0-1-2.5-9.5t-.5-13.5q5 27 29 9 3 3 15.5 5t17.5 5q3 2 7 5.5t5.5 4.5 5-.5 8.5-6.5q10 14 12 24 11 40 19 44 7 3 11 2t4.5-9.5 0-14-1.5-12.5l-1-8v-18l-1-8q-15-3-18.5-12t1.5-18.5 15-18.5q1-1 8-3.5t15.5-6.5 12.5-8q21-19 15-35 7 0 11-9-1 0-5-3t-7.5-5-4.5-2q9-5 2-16 5-3 7.5-11t7.5-10q9 12 21 2 8-8 1-16 5-7 20.5-10.5t18.5-9.5q7 2 8-2t1-12 3-12q4-5 15-9t13-5l17-11q3-4 0-4 18 2 31-11 10-11-6-20 3-6-3-9.5t-15-5.5q3-1 11.5-.5t10.5-1.5q15-10-7-16-17-5-43 12zm-163 877q206-36 351-189-3-3-12.5-4.5t-12.5-3.5q-18-7-24-8 1-7-2.5-13t-8-9-12.5-8-11-7q-2-2-7-6t-7-5.5-7.5-4.5-8.5-2-10 1l-3 1q-3 1-5.5 2.5t-5.5 3-4 3 0 2.5q-21-17-36-22-5-1-11-5.5t-10.5-7-10-1.5-11.5 7q-5 5-6 15t-2 13q-7-5 0-17.5t2-18.5q-3-6-10.5-4.5t-12 4.5-11.5 8.5-9 6.5-8.5 5.5-8.5 7.5q-3 4-6 12t-5 11q-2-4-11.5-6.5t-9.5-5.5q2 10 4 35t5 38q7 31-12 48-27 25-29 40-4 22 12 26 0 7-8 20.5t-7 21.5q0 6 2 16z" fill="#fff"></path></svg>
+                            </div>
+                            <h4>Locations</h4>
+                            <p>United Kingdom, Spain, Poland</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                            <div class="icon">
+                                <svg width="256" height="256" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M192 1664h288v-288h-288v288zm352 0h320v-288h-320v288zm-352-352h288v-320h-288v320zm352 0h320v-320h-320v320zm-352-384h288v-288h-288v288zm736 736h320v-288h-320v288zm-384-736h320v-288h-320v288zm768 736h288v-288h-288v288zm-384-352h320v-320h-320v320zm-352-864v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm736 864h288v-320h-288v320zm-384-384h320v-288h-320v288zm384 0h288v-288h-288v288zm32-480v-288q0-13-9.5-22.5t-22.5-9.5h-64q-13 0-22.5 9.5t-9.5 22.5v288q0 13 9.5 22.5t22.5 9.5h64q13 0 22.5-9.5t9.5-22.5zm384-64v1280q0 52-38 90t-90 38h-1408q-52 0-90-38t-38-90v-1280q0-52 38-90t90-38h128v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h384v-96q0-66 47-113t113-47h64q66 0 113 47t47 113v96h128q52 0 90 38t38 90z" fill="#fff"></path></svg>
+                            </div>
+                            <h4>Year Founded</h4>
+                            <p>2006</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6 mb-3 mb-md-0">
+                            <div class="icon">
+                                <svg width="256" height="256" viewBox="0 0 2048 1792" xmlns="http://www.w3.org/2000/svg"><path d="M657 896q-162 5-265 128h-134q-82 0-138-40.5t-56-118.5q0-353 124-353 6 0 43.5 21t97.5 42.5 119 21.5q67 0 133-23-5 37-5 66 0 139 81 256zm1071 637q0 120-73 189.5t-194 69.5h-874q-121 0-194-69.5t-73-189.5q0-53 3.5-103.5t14-109 26.5-108.5 43-97.5 62-81 85.5-53.5 111.5-20q10 0 43 21.5t73 48 107 48 135 21.5 135-21.5 107-48 73-48 43-21.5q61 0 111.5 20t85.5 53.5 62 81 43 97.5 26.5 108.5 14 109 3.5 103.5zm-1024-1277q0 106-75 181t-181 75-181-75-75-181 75-181 181-75 181 75 75 181zm704 384q0 159-112.5 271.5t-271.5 112.5-271.5-112.5-112.5-271.5 112.5-271.5 271.5-112.5 271.5 112.5 112.5 271.5zm576 225q0 78-56 118.5t-138 40.5h-134q-103-123-265-128 81-117 81-256 0-29-5-66 66 23 133 23 59 0 119-21.5t97.5-42.5 43.5-21q124 0 124 353zm-128-609q0 106-75 181t-181 75-181-75-75-181 75-181 181-75 181 75 75 181z" fill="#fff"></path></svg>
+                            </div>
+                            <h4>Company Size</h4>
+                            <p>25 employees</p>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="icon">
+                                <svg width="256" height="256" viewBox="0 0 2048 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1811 1555q19-19 45-19t45 19l128 128-90 90-83-83-83 83q-18 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-128-128 90-90 83 83 83-83q19-19 45-19t45 19l83 83 83-83q19-19 45-19t45 19l83 83 83-83q19-19 45-19t45 19l83 83 83-83q19-19 45-19t45 19l83 83 83-83q19-19 45-19t45 19l83 83 83-83q19-19 45-19t45 19l83 83zm-1574-38q-19 19-45 19t-45-19l-128-128 90-90 83 82 83-82q19-19 45-19t45 19l83 82 64-64v-293l-210-314q-17-26-7-56.5t40-40.5l177-58v-299h128v-128h256v-128h256v128h256v128h128v299l177 58q30 10 40 40.5t-7 56.5l-210 314v293l19-18q19-19 45-19t45 19l83 82 83-82q19-19 45-19t45 19l128 128-90 90-83-83-83 83q-18 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83-83 83q-19 19-45 19t-45-19l-83-83zm403-1133v128l384-128 384 128v-128h-128v-128h-512v128h-128z" fill="#fff"></path></svg>
+                            </div>
+                            <h4>Launched Websites</h4>
+                            <p>500+</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col-md-6 order-md-12">
+                            <h2 class="title-body">How does The Cogworks utilize elmah.io?</h2>
+                            <p>We had a chat with Ismail Mayat, a senior web developer at The Cogworks. Ismail tells us that they use elmah.io across all their projects.</p>
+                            <p>"We became familiar with elmah.io when one of our existing projects was causing us performance issues. Trawling through our application and IIS logs we had found nothing of note but when we installed elmah.io it opened up a whole new window to our site code base. We soon found the problem and all was fixed."</p>
+                            <p>The Cogworks are continuously working with elmah.io and use a lot of the features available. One of the favorites, is the integration with Slack. By integrating error logging from the range of websites with Slack, The Cogworks has an early warning system and can react to errors before customers starts complaining.</p>
+                            <p>When looking back to the time before integrating with elmah.io, Ismail states: "Now it's a case of how did we ever live without it?"</p>
+                        </div>
+                        <div class="col-md-6 order-md-1 text-center">
+                            <img src="images/customerstories/thecogworks2_large.png" alt="The Cogworks" class="img-thumbnail img-fluid">
+                            <br>
+                            <small>Credit: <a href="https://www.flickr.com/photos/percipientstudios/22747910545/in/album-72157660461554512/" rel="noopener noreferrer" target="_blank">Doug Robar</a></small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quotes section -->
+        <div class="section section-quotes">
+            <div class="container">
+                <div class="section-body">
+                    <div class="row">
+                        <div class="col">
+                            <blockquote class="blockquote text-center">
+                                <div class="row align-items-center">
+                                    <div class="col-12 col-md-9">
+                                        <p class="mb-2">elmah.io is powerful, super intuitive, and just works. It's as if a real person made it for real people.</p>
+                                        <footer class="blockquote-footer">
+                                            <img src="images/tweets/anthonydang.png">
+                                            <span>Anthony Dang, Head of Development at The Cogworks</span>
+                                        </footer>
+                                    </div>
+                                    <div class="col-12 col-md-3">
+                                        <a class="btn btn-primary my-3" href="#">Sign up now</a>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <div class="pre-footer">
+                <div class="container">
+                    <div class="company-logo">
+                        <img class="img-fluid" src="images/elmahio.png" alt="elmah.io">
+                    </div>
+                    <a href="#" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+                </div>
+            </div>
+            <div class="links">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <h5>Product</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/features/">Features</a></li>
+                                <li><a href="https://elmah.io/pricing/">Pricing</a></li>
+                                <li><a href="https://elmah.io/api">API</a></li>
+                                <li><a href="https://headwayapp.co/elmah-io-changelog" rel="noopener noreferrer" target="_blank">Changelog</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Company</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/about/">About</a></li>
+                                <li><a href="https://elmah.io/contact/">Contact</a></li>
+                                <li><a href="https://blog.elmah.io/">Blog</a></li>
+                                <li><a href="https://docs.elmah.io/">Docs</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Learn</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+                                <li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+                                <li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
+                                <li><a href="https://elmah.io/tools/">Free Tools</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Guides</h5>
+                            <ul class="list-unstyled">
+                                <li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+                                <li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+                                <li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+                            </ul>
+                        </div>
+                        <div class="col">
+                            <h5>Social</h5>
+                            <ul class="list-unstyled social">
+                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <div class="container">
+                    <div class="text-center">
+                        <p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
+                        <p><a href="https://elmah.io/termsofuse/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="scripts/jquery-3.3.1.js"></script>
+        <script src="scripts/popper.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <script src="scripts/owl.carousel.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

@@ -664,6 +664,25 @@ footer .copyright a {
 	overflow: hidden;
 }
 
+.section.section-cog {
+	padding: 70px 0px;
+	background: #065c85;
+	color: #ffffff;
+	text-align: center;
+}
+.section.section-cog .icon {
+	margin-bottom: 20px;
+	text-align: center;
+}
+.section.section-cog .icon svg {
+	width: 80px;
+	height: 80px;
+	overflow: initial;
+}
+.section.section-cog .section-body h4 {
+	font-size: 1.25rem;
+}
+
 /* ========= Modal SignIn ========= */
 .signinbuttons i {
 	width: 16px;
