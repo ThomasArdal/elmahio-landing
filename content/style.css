@@ -284,7 +284,7 @@ footer .copyright a {
 .section.section-hero {
 	padding-top: 120px;
 	color: #ffffff;
-	background: #179A99 url(../img/hero-bg.svg) no-repeat center;
+	background: #179A99 url(../images/hero-bg.svg) no-repeat center;
 	background-size: cover;
 	text-align: center;
 }
@@ -378,6 +378,9 @@ footer .copyright a {
 	width: 50px;
 	border-radius: 100px;
 	margin: 0px 10px;
+}
+.section.section-quotes a.btn {
+	color: #ffffff;
 }
 
 /* ========= Testimonials section ========= */
@@ -500,7 +503,7 @@ footer .copyright a {
 	font-size: 14px;
 	padding: 70px 0px;
     color: #ffffff;
-    background: #179A99 url(../img/hero-bg.svg) no-repeat center;
+    background: #179A99 url(../images/hero-bg.svg) no-repeat center;
     background-size: cover;
     overflow: hidden;
     border-bottom: 2px solid #ffffff;
@@ -587,7 +590,7 @@ footer .copyright a {
 	text-align: center;
 	padding: 70px 0px;
     color: #ffffff;
-    background: #179A99 url(../img/hero-bg.svg) no-repeat center;
+    background: #179A99 url(../images/hero-bg.svg) no-repeat center;
     background-size: cover;
     border-bottom: 2px solid #ffffff;
 }
