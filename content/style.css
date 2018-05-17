@@ -139,19 +139,6 @@ button:focus {
 	color: #ffffff;
 	padding: 10px 15px;
 }
-.navbar-signin {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-}
-.navbar-signin li {
-	display: inline-block;
-}
-.navbar-signin li a,
-.navbar-signin li span.navbar-text {
-	padding: 10px;
-	color: #ffffff;
-}
 .navbar-special {
 	border-bottom: 1px solid #eee;
 }
@@ -893,11 +880,8 @@ footer .copyright a {
 }
 
 @media screen and (max-width: 767px) {
-	.navbar-signin {
-		padding: 5px;
-	}
-	.navbar-signin li.hidden-xs {
-		display: none;
+	.navbar-nav-btn {
+		padding: 10px 15px;
 	}
 	.container {
 		max-width: 100%;
