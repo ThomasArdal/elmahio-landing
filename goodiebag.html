@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>ELMAH Cloud Logging - Error Management for .NET websites | elmah.io</title>
+        <meta name="description" content="Cloud logging for .NET web applications using ELMAH. Find bugs before you go live. Powerful search, API, integration with Slack, GitHub, Visual Studio and more" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="content/bootstrap.css" />
+        <link rel="stylesheet" href="content/fontawesome-all.css">
+        <link rel="stylesheet" href="content/owl.carousel.css" />
+        <link rel="stylesheet" href="content/style.css" />
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-overlap navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="https://elmah.io/"><img src="images/logo.png" alt="elmah.io"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-btn">
+                        <li class="nav-item"><a class="btn btn-outline-light" href="#">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero section -->
+        <div class="section section-hero">
+            <div class="container">
+                <div class="section-body">
+                    <h1 class="text-center">Goodie Bag</h1>
+                    <h2 class="text-center">elmah.io comes with gifts for all</h2>
+                    <a href="#" class="btn btn-hero text-center">
+                        <span>Sign Up Now</span>
+                        <span class="info">no credit card required</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goodiebag section -->
+        <div class="section section-goodiebag">
+            <div class="container">
+                <div class="section-header">
+                    <h2>The elmah.io Goodie Bag is the perfect companion to every serious .NET developer</h2>
+                    <p>With an elmah.io Business, Business+ or Enterprise subscription, we offer great discounts on popular development tools for .NET. Sign up to redeem your discounts.</p>
+                </div>
+                <div class="section-body">
+                    <div class="card-deck mb-4">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/dotconnect.png" alt="dotConnect Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">10%</div>
+                                <h5 class="card-title">dotConnect</h5>
+                                <p class="card-text">dotConnect is an enhanced data connectivity solution built over ADO.NET architecture and a development framework with a number of innovative technologies. dotConnect product line includes high performance data providers with advanced Entity Framework support for the major databases and popular cloud applications and offers a complete solution for developing data-related applications, services, and web sites.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'dotConnect goodiebag discount');" class="btn btn-dark btn-block">Redeem 10% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/ErrorUnitLargeLogo.png" alt="ErrorUnit Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">30%</div>
+                                <h5 class="card-title">ErrorUnit</h5>
+                                <p class="card-text">ErrorUnit automatically creates Unit Tests from your errors logged in Elmah, or in Visual Studio while debugging. Not only reproducing the parameters that were passed to the Method, but the static or private class variables, and the data accessed so far by Entity Framework.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'ErrorUnit goodiebag discount');" class="btn btn-dark btn-block">Redeem 30% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/revdebug.png" alt="RevDeBug Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">25%</div>
+                                <h5 class="card-title">RevDeBug</h5>
+                                <p class="card-text">RevDeBug records what an application does “under the hood” on each line of code and allows you to step backwards in time, which helps in finding the root causes of bugs. Finally you don’t need to restart your debugging session over and over again. Now you can trace the root cause of bugs just by stepping back in time.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'RevDeBug goodiebag discount');" class="btn btn-dark btn-block">Redeem 25% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/attackflow.png" alt="AttackFlow Visual Studio Extension Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">30%</div>
+                                <h5 class="card-title">AttackFlow Visual Studio Extension</h5>
+                                <p class="card-text">AttackFlow is a Visual Studio extension with an easy installation and update. Each time you type syntax error-free code into the development environment, AttackFlow runs in the background trying to find security vulnerabilities including the flow analysis. Taint flow analisys to configurational bugs AttackFlow supports over 45 unique of software security findings grouped in nine classes including but not limited to Authorization, Injection, Cryptography, Authentication, Code Quality.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'AttackFlow goodiebag discount');" class="btn btn-dark btn-block">Redeem 30% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/ORM_logo.png" alt="Free O'Reilly eBook">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">eBook</div>
+                                <h5 class="card-title">1 Free eBook from O'Reilly Media</h5>
+                                <p class="card-text">O'Reilly spreads the knowledge of innovators through its technology books, online services, magazines, research, and tech conferences. Since 1978, O'Reilly has been a chronicler and catalyst of leading-edge development, homing in on the technology trends that really matter and galvanizing their adoption by amplifying "faint signals" from the alpha geeks who are creating the future. An active participant in the technology community, O'Reilly has a long history of advocacy, meme-making, and evangelism.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'O\'Reilly goodiebag discount');" class="btn btn-dark btn-block">Redeem discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/typemock.jpg" alt="Typemock Isolator Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">20%</div>
+                                <h5 class="card-title">Typemock Isolator – Helping Developers become Agile through easy unit testing</h5>
+                                <p class="card-text">Typemock Isolator isn’t just about mocking. It is about a seamless unit testing experience. Typemock Isolator is the first tool to enable mocking static and hidden methods. And now the first tool to suggest complete unit tests for you, even on your Legacy code. Typemock Isolator continuously brings revolutionary new perspectives on unit testing.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'Typemock goodiebag discount');" class="btn btn-dark btn-block">Redeem 20% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/cloudberryexplorer.png" alt="CloudBerry Explorer PRO Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">30%</div>
+                                <h5 class="card-title">CloudBerry Explorer PRO</h5>
+                                <p class="card-text">Explorer for Azure Storage is a SIMPLE file manager for the cloud storage. CloudBerry Explorer allows accessing and managing Azure storage accounts as well as moving files and folders between your computer and cloud storage.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'CloudBerry Explorer goodiebag discount');" class="btn btn-dark btn-block">Redeem 30% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/siaqodb.jpg" alt="Siaqodb Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">20%</div>
+                                <h5 class="card-title">Siaqodb</h5>
+                                <p class="card-text">Siaqodb is a NoSQL embedded object and document database engine for .NET</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'Siaqodb goodiebag discount');" class="btn btn-dark btn-block">Redeem 20% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/myget.png" alt="MyGet Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">15%</div>
+                                <h5 class="card-title">MyGet</h5>
+                                <p class="card-text">Attain tangible productivity gains and reduce time to market by integrating with MyGet's Package Management services. MyGet offers public and private package repository hosting for NuGet, NPM, Bower, and Visual Studio Extensions. Create feeds with your own proprietary packages and those from other package sources. If you already use some sort of NuGet server and also need support for NPM, Bower and symbols, you may benefit from moving your packages to MyGet, allowing you to manage all your software artifacts in one place.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'MyGet goodiebag discount');" class="btn btn-dark btn-block">Redeem 15% (first year) discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/abcbook.png" alt="Programming Languages ABC++ Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">40%</div>
+                                <h5 class="card-title">Programming Languages ABC++</h5>
+                                <p class="card-text">It's an alphabet book that aims to help us share what we do with the kids in our life, and spark children's interest in coding. The book follows the Bug, as it bumbles through the alphabet in colorful computer pun illustrations. Each page highlights a different language with a ‘Hello World’ program, and some factoids about the history of the language.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'Programming Languages ABC goodiebag discount');" class="btn btn-dark btn-block">Redeem 40% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/release.png" alt="Release! Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">40%</div>
+                                <h5 class="card-title">Release!</h5>
+                                <p class="card-text">Release! is a lightly themed game set in the world of software development. Creating software takes time, skill, the right team, and hard work. Release is a little quicker, and a lot more fun. Modeled on school trick taking games, Release! puts a spin on classic sensibilities with new scoring mechanics each round, and powerful special cards featuring some familiar faces from the industry.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'Release goodiebag discount');" class="btn btn-dark btn-block">Redeem 40% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/sqlpp_log.png" alt="SQL Pretty Printer Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">20%</div>
+                                <h5 class="card-title">SQL Pretty Printer</h5>
+                                <p class="card-text">SQL Pretty Printer, a SQL formatter tool that allows you to easily format messy and unorganized SQL into a clean, well-structured script. SQL Pretty Printer can also generate well-formatted and colored SQL scripts in HTML or RTF, quickly convert between SQL and C#, Java, VB, PHP, Delphi and more, cutting down the time used to debug SQL.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'SQL Pretty Printer goodiebag discount');" class="btn btn-dark btn-block">Redeem 20% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/linqer.png" alt="Linqer Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">30%</div>
+                                <h5 class="card-title">Linqer</h5>
+                                <p class="card-text">Many programmers are familiar with SQL and will require help in the transition to LINQ. Sometimes complicated queries need to be written and Linqer can help by converting SQL scripts to LINQ.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'Linqer goodiebag discount');" class="btn btn-dark btn-block">Redeem 30% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/nhprofiler.png" alt="NHibernate Profiler Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">15%</div>
+                                <h5 class="card-title">NHibernate Profiler</h5>
+                                <p class="card-text">NHibernate Profiler is a real-time visual debugger allowing a development team to gain valuable insight and perspective into their usage of NHibernate. The product is architected with input coming from many top industry leaders within the NHibernate community. Alerts are presented in a concise code-review manner indicating patterns of misuse by your application.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'NHibernate Profiler goodiebag discount');" class="btn btn-dark btn-block">Redeem 15% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/memoryprofilerlogo.png" alt=".NET Memory Profiler Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">20%</div>
+                                <h5 class="card-title">.NET Memory Profiler</h5>
+                                <p class="card-text">.NET Memory Profiler is a powerful tool for finding memory leaks and optimizing the memory usage in programs written in C#, VB.NET or any other .NET Language. With the help of the profiling guides, the automatic memory analyzer, and specialized trackers, you can make sure that your program has no memory or resource leaks, and that the memory usage is as optimal as possible.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', '.NET Memory Profiler goodiebag discount');" class="btn btn-dark btn-block">Redeem 20% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/ozcode.png" alt="OzCode Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">20%</div>
+                                <h5 class="card-title">OzCode</h5>
+                                <p class="card-text">OzCode is a revolutionary debugging extension which complements Visual Studio, and supercharges the C# debugging experience.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'OzCode goodiebag discount');" class="btn btn-dark btn-block">Redeem 20% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/NDependLogo.jpg" alt="NDepend Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">10%</div>
+                                <h5 class="card-title">NDepend</h5>
+                                <p class="card-text">NDepend is a tool for .NET Developers and Architects, that lets control and measure .NET code quality, right inside Visual Studio and also on the Build Server. The tool offers a wide range of features, including code ruling through C# LINQ queries, various live diagrams and charts and production of reporting.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'NDepend goodiebag discount');" class="btn btn-dark btn-block">Redeem 10% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/BeyondCompareIcon.png" alt="Beyond Compare Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">20%</div>
+                                <h5 class="card-title">Beyond Compare</h5>
+                                <p class="card-text">Beyond Compare allows you to quickly and easily compare your files and folders. By using simple, powerful commands you can focus on the differences you're interested in and ignore those you're not. You can then merge the changes, synchronize your files, and generate reports for your records.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'Beyond Compare goodiebag discount');" class="btn btn-dark btn-block">Redeem 20% discount</a>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <img class="img-fluid" src="images/goodiebag/efprofiler.png" alt="Entity Framework Profiler Discount">
+                            </div>
+                            <div class="card-body">
+                                <div class="discount">15%</div>
+                                <h5 class="card-title">Entity Framework Profiler</h5>
+                                <p class="card-text">Entity Framework Profiler is a real-time visual debugger allowing a development team to gain valuable insight and perspective into their usage of Entity Framework. The product is architected with input coming from many top industry leaders within the OR/M community. Alerts are presented in a concise code-review manner indicating patterns of misuse by your application.</p>
+                            </div>
+                            <div class="card-footer">
+                                <a href="javascript:Intercom('showNewMessage', 'Entity Framework Profiler goodiebag discount');" class="btn btn-dark btn-block">Redeem 15% discount</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="alert alert-secondary py-4" role="alert">
+                        <h4 class="alert-heading">Want your product or service included in the goodie bag?</h4>
+                        <p class="mb-0">Awesome! Please <a href="javascript:Intercom('showNewMessage', 'Goodie Bag Idea');">contact us</a> for details on how to get included in the bag.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+        	<div class="pre-footer">
+    	    	<div class="container">
+    	    		<div class="company-logo">
+    					<img class="img-fluid" src="images/elmahio.png" alt="elmah.io">
+    				</div>
+    				<a href="#" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+    			</div>
+    	    </div>
+        	<div class="links">
+        		<div class="container">
+        			<div class="row">
+        				<div class="col">
+        					<h5>Product</h5>
+        					<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/features/">Features</a></li>
+    							<li><a href="https://elmah.io/pricing/">Pricing</a></li>
+    							<li><a href="https://elmah.io/api">API</a></li>
+    							<li><a href="https://headwayapp.co/elmah-io-changelog" rel="noopener noreferrer" target="_blank">Changelog</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Company</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/about/">About</a></li>
+    							<li><a href="https://elmah.io/contact/">Contact</a></li>
+    							<li><a href="https://blog.elmah.io/">Blog</a></li>
+    							<li><a href="https://docs.elmah.io/">Docs</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Learn</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+    							<li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+    							<li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
+    							<li><a href="https://elmah.io/tools/">Free Tools</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Guides</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+    							<li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+    							<li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+    						</ul>
+        				</div>
+                        <div class="col">
+                            <h5>Social</h5>
+                            <ul class="list-unstyled social">
+                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="copyright">
+        		<div class="container">
+        			<div class="text-center">
+    					<p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
+    					<p><a href="https://elmah.io/termsofuse/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+    				</div>
+        		</div>
+        	</div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="scripts/jquery-3.3.1.js"></script>
+        <script src="scripts/popper.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <script src="scripts/owl.carousel.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

@@ -368,6 +368,7 @@ footer .copyright a {
 }
 .section.section-quotes a.btn {
 	color: #ffffff;
+	white-space: normal;
 }
 
 /* ========= Testimonials section ========= */
@@ -664,6 +665,7 @@ footer .copyright a {
 	overflow: hidden;
 }
 
+/* ========= Cog blue section ========= */
 .section.section-cog {
 	padding: 70px 0px;
 	background: #065c85;
@@ -679,8 +681,64 @@ footer .copyright a {
 	height: 80px;
 	overflow: initial;
 }
+.section.section-cog .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
 .section.section-cog .section-body h4 {
 	font-size: 1.25rem;
+}
+
+/* ========= Goodiebag section ========= */
+.section.section-goodiebag {
+	font-size: 14px;
+	border-top: 1px solid #eee;
+}
+.section.section-goodiebag .section-header {
+    margin: 0 auto 20px;
+}
+.section.section-goodiebag .section-header h2 {
+	padding: 0px;
+	font-size: 1.75rem;
+}
+.section.section-goodiebag .card-deck .card {
+	-ms-flex: 1 0 calc(50% - 30px);
+	flex: 1 0 calc(50% - 30px);
+	margin-bottom: 30px;
+}
+.section.section-goodiebag .card-header {
+	background: #ffffff;
+}
+.section.section-goodiebag .card-header img {
+	height: 50px;
+}
+.section.section-goodiebag .discount {
+	float: right;
+    line-height: 70px;
+    width: 70px;
+    background-color: #FF9900;
+    color: white;
+    border-radius: 50px;
+    border: 1px dashed;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: -10px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.section.section-goodiebag .card-body {
+	background: #f8f8f8;
+}
+.section.section-goodiebag .card-footer {
+	padding: 0px;
+	margin: 0px -1px;
+}
+.section.section-goodiebag .card-footer .btn {
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+	color: #ffffff;
 }
 
 /* ========= Modal SignIn ========= */
