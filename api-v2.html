@@ -1,0 +1,799 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>ELMAH Cloud Logging - Error Management for .NET websites | elmah.io</title>
+        <meta name="description" content="Cloud logging for .NET web applications using ELMAH. Find bugs before you go live. Powerful search, API, integration with Slack, GitHub, Visual Studio and more" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="content/bootstrap.css" />
+        <link rel="stylesheet" href="content/fontawesome-all.css">
+        <link rel="stylesheet" href="content/owl.carousel.css" />
+        <link rel="stylesheet" href="content/highlight.min.css" />
+        <link rel="stylesheet" href="content/style.css" />
+    </head>
+
+    <body class="body-gray">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark navbar-border">
+            <div class="container">
+                <a class="navbar-brand" href="https://elmah.io/"><img src="images/logo.png" alt="elmah.io"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-btn">
+                        <li class="nav-item"><a class="btn btn-outline-light" href="#">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+        <div class="container mb-5">
+
+            <div class="card bg-light mb-5">
+                <div class="card-body">
+                    <h5 class="mb-4 card-title">API: V2</h5>
+                    <h6 class="card-subtitle mb-2">So you're interested in utilizing elmah.io for your own needs? You're in luck! We do support third party integration through this JSON API.</h6>
+                    <p class="card-text text-muted">Unlike previous versions of our API, V2 is no longer limited to logging errors. elmah.io is still great to log and display errors, but you can log everything from verbose messages to fatal errors. Throughout this document we refer to the data you want to log, simply as messages.</p>
+                </div>
+                <div class="card-footer">
+                    <p class="mb-0 text-muted">Before digging into HTTP requests, you should check out <a href="https://www.nuget.org/packages/elmah.io.client/2.0.29" rel="noopener noreferrer" target="_blank">Elmah.Io.Client</a> NuGet package, which offers a .NET client for our API.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <aside class="sidebar">
+                    <div class="sidebar-body sidebar-docs sticky-top">
+                        <ul class="main-nav">
+                            <li>
+                                <a href="javascript:;">Methods</a>
+                                <ul>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#createmessage">Create message</a></li>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#getmessage">Get message</a></li>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#getmessages">Get messages</a></li>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#deletemessage">Delete message</a></li>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#deletemessages">Delete messages</a></li>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#hidemessage">Hide message</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:;">Objects</a>
+                                <ul>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#messageObject">Message</a></li>
+                                    <li><a class="nav-link js-scroll-trigger-docs" href="#queryObject">Query</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+                <article class="col main-content">
+                    <div class="main-content-body">
+
+                        <div class="docs-box">
+
+                            <h1 id="createmessage" class="quicksand">Create message</h1>
+                            <p class="hook">
+                                <span class="badge badge-info">POST</span><a href="https://elmah.io/api/v2/messages" class="badge badge-url">/api/v2/messages</a>
+                            </p>
+                            <p>
+                                Body should contain a <a href="#messageObject">message</a> in JSON or XML format. On successful creation a HTTP status code with value 201 is returned, including a Location header to indicate where the created resource can be requested.
+                            </p>
+
+                            <h3>Request</h3>
+                            <h4>Parameters</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        logid
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>GUID</td>
+                                    <td>The id of the log you would like to add the new message to</td>
+                                </tr>
+                            </table>
+
+                            <br />
+                            <h4>Example</h4>
+                            <p class="hook">
+                                <span class="badge badge-info">POST</span><span class="badge badge-url">https://elmah.io/api/v2/messages?logid=5082a1ce-c234-4c2e-92d4-5c5bd5a72854</span>
+                            </p>
+                            <pre><code class="json"><span class="badge badge-secondary">Body</span>
+{
+    "title": "This is a test message"
+}</code></pre>
+                            <br />
+                            <h3>Response</h3>
+                            <h4>Codes</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td><span class="badge badge-danger">200</span></td>
+                                    <td>Not Created</td>
+                                    <td>Message were not created.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-success">201</span></td>
+                                    <td>Created</td>
+                                    <td>Message were successfully created.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">403</span></td>
+                                    <td>Forbidden</td>
+                                    <td>Request limit reached and message were not created.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">404</span></td>
+                                    <td>Not Found</td>
+                                    <td>Log ID not found.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <span class="badge badge-success" title="Status Code">201 (Created)</span>
+                            <pre><code class="cs"><span class="badge badge-secondary">HTTP Header</span>
+Location: https://elmah.io/api/v2/messages?id=6707A1B0A79C8E85&amp;logid=5082a1ce-c234-4c2e-92d4-5c5bd5a72854</code></pre>
+
+
+                            <hr id="getmessage" />
+
+
+                            <h1 class="quicksand">Get message</h1>
+                            <p class="hook">
+                                <span class="badge badge-info">GET</span><a href="https://elmah.io/api/v2/messages" class="badge badge-url">/api/v2/messages</a>
+                            </p>
+                            <p>
+                                Returns a single <a href="#messageObject">message</a> by it's <code>id</code> and <code>logid</code>. If the message is found, the request returns a status code 200.
+                            </p>
+                            <h3>Request</h3>
+                            <h4>Parameters</h4>
+
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        logid
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>GUID</td>
+                                    <td>The id of the log you would like to get the message from</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        id
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>string</td>
+                                    <td>The id of the message you would like to get.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <p class="hook">
+                                <span class="badge badge-info" title="Method">GET</span><span class="badge badge-url">https://elmah.io/api/v2/messages?id=6707A1B0A79C8E85&amp;logid=5082a1ce-c234-4c2e-92d4-5c5bd5a72854</span>
+                            </p>
+                            <br />
+                            <h3>Response</h3>
+                            <h4>Codes</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td><span class="badge badge-success">200</span></td>
+                                    <td>OK</td>
+                                    <td>Message found.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">404</span></td>
+                                    <td>Not Found</td>
+                                    <td>Message not found.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example:</h4>
+                            <p><span class="badge badge-success" title="Status Code">200</span></p>
+                            <pre><span class="badge badge-secondary" title="Status Code">Body</span><code class="json">
+{
+    "title": "This is a test message"
+}</code></pre>
+
+                            <hr id="getmessages" />
+
+
+                            <h1 class="quicksand">Get messages</h1>
+                            <p class="hook">
+                                <span class="badge badge-info">GET</span><a href="https://elmah.io/api/v2/messages" class="badge badge-url">/api/v2/messages</a>
+                            </p>
+                            <p>
+                                Returns a list of <a href="#messageObject">message</a> objects by their <code>logid</code>. This request pages results by the parameters <code>pageIndex</code> and <code>pageSize</code>. Weather or not messages are found, the request returns status code 200 as long as the <code>logid</code> is found.
+                            </p>
+                            <h3>Request</h3>
+                            <h4>Parameters</h4>
+
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        logid
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>GUID</td>
+                                    <td>The id of the log you would like to get the messages from</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        query
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>string</td>
+                                    <td>A full-text or Lucene query to limit the messages by.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        from
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>datetime</td>
+                                    <td>A start date and time to search from (not included).</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        to
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>datetime</td>
+                                    <td>An end date and time to search to (not included).</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pageindex
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>number</td>
+                                    <td>The page to start on or 0 if not set.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        pagesize
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>number</td>
+                                    <td>The number of messages to load (max 100) or 15 if not set.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <p class="hook">
+                                <span class="badge badge-info" title="Method">GET</span><span class="badge badge-url">https://elmah.io/api/v2/messages?logid=5082a1ce-c234-4c2e-92d4-5c5bd5a72854&amp;pageindex=2&amp;pagesize=10</span>
+                            </p>
+                            <br />
+
+                            <h3>Response</h3>
+                            <h4>Codes</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td><span class="badge badge-success">200</span></td>
+                                    <td>OK</td>
+                                    <td>Messages found.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">400</span></td>
+                                    <td>Bad Request</td>
+                                    <td>Something wrong with the query parameters.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">404</span></td>
+                                    <td>Not Found</td>
+                                    <td>Log not found.</td>
+                                </tr>
+                            </table>
+
+                            <h4>Example</h4>
+                            <span class="badge badge-success" title="Status Code">200</span>
+                            <pre><span class="badge badge-secondary" title="Status Code">Body</span><code class="json">
+{
+    "messages":
+        [
+            {
+                "title": "This is the first test message"
+            },
+            {
+                "title": "This is the second test message"
+            },
+            ...
+        ],
+    "total": 21
+}</code></pre>
+
+
+
+                            <hr id="deletemessage" />
+
+                            <h1 class="quicksand">Delete message <span class="badge badge-success">Enterprise</span></h1>
+                            <p class="hook">
+                                <span class="badge badge-info">DELETE</span><a href="https://elmah.io/api/v2/messages" class="badge badge-url">/api/v2/messages</a>
+                            </p>
+                            <p>
+                                Deletes a single <a href="#messageObject">message</a> by it's <code>id</code> and <code>logid</code>. If the message is deleted, the request returns a status code 200.
+                            </p>
+
+                            <h3>Request</h3>
+                            <h4>Parameters</h4>
+
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        logid
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>GUID</td>
+                                    <td>The id of the log you would like to delete the message from</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        id
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>string</td>
+                                    <td>The id of the message you would like to delete.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <p class="hook">
+                                <span class="badge badge-info" title="Method">DELETE</span><span class="badge badge-url">https://elmah.io/api/v2/messages?id=6707A1B0A79C8E85&amp;logid=5082a1ce-c234-4c2e-92d4-5c5bd5a72854</span>
+                            </p>
+                            <br />
+                            <h3>Response</h3>
+                            <h4>Codes</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td><span class="badge badge-success">200</span></td>
+                                    <td>OK</td>
+                                    <td>Message deleted.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">402</span></td>
+                                    <td>Payment Request</td>
+                                    <td>Trying to call this endpoint without an Enterprise subscription.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">404</span></td>
+                                    <td>Not Found</td>
+                                    <td>Message not found.</td>
+                                </tr>
+                            </table>
+
+
+                            <hr id="deletemessages" />
+
+                            <h1 class="quicksand">Delete messages <span class="badge badge-success">Enterprise</span></h1>
+                            <p class="hook">
+                                <span class="badge badge-info">DELETE</span><a href="https://elmah.io/api/v2/messages" class="badge badge-url">/api/v2/messages</a>
+                            </p>
+                            <p>
+                                Deletes a list of <a href="#messageObject">messages</a> by <code>logid</code> and <a href="#queryObject">query</a>. If the messages are deleted, the request returns a status code 200.
+                            </p>
+
+                            <h3>Request</h3>
+                            <h4>Parameters</h4>
+
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        logid
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>GUID</td>
+                                    <td>The id of the log you would like to delete the messages from</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <p class="hook">
+                                <span class="badge badge-info">DELETE</span><span class="badge badge-url">https://elmah.io/api/v2/messages?logid=5082a1ce-c234-4c2e-92d4-5c5bd5a72854</span>
+                            </p>
+                            <pre><code class="json"><span class="badge badge-secondary">Body</span>
+{
+    "query": "This is a test message",
+    "from": "2016-05-25T07:00:00+00:00",
+    "to": "2016-05-25T08:00:00+00:00",
+}</code></pre>
+                            <br />
+                            <h3>Response</h3>
+                            <h4>Codes</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td><span class="badge badge-success">200</span></td>
+                                    <td>OK</td>
+                                    <td>Messages deleted.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">400</span></td>
+                                    <td>Bad Request</td>
+                                    <td>Problem with <a href="#queryObject">query</a>.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">402</span></td>
+                                    <td>Payment Request</td>
+                                    <td>Trying to call this endpoint without an Enterprise subscription.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">404</span></td>
+                                    <td>Not Found</td>
+                                    <td>Log not found.</td>
+                                </tr>
+                            </table>
+
+
+
+                            <hr id="hidemessage" />
+
+                            <h1 class="quicksand">Hide message <span class="badge badge-success">Enterprise</span></h1>
+                            <p class="hook">
+                                <span class="badge badge-info">POST</span><a href="https://elmah.io/api/v2/messages/_hide" class="badge badge-url">/api/v2/messages/_hide</a>
+                            </p>
+                            <p>
+                                Hides a single <a href="#messageObject">message</a> by it's <code>id</code> and <code>logid</code>. If the message is hidden, the request returns a status code 200.
+                            </p>
+                            <h3>Request</h3>
+                            <h4>Parameters</h4>
+
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        logid
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>GUID</td>
+                                    <td>The id of the log you would like to hide the message from</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        id
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>string</td>
+                                    <td>The id of the message you would like to hide.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <p class="hook">
+                                <span class="badge badge-info" title="Method">POST</span><span class="badge badge-url">https://elmah.io/api/v2/messages/_hide?id=6707A1B0A79C8E85&amp;logid=5082a1ce-c234-4c2e-92d4-5c5bd5a72854</span>
+                            </p>
+                            <br />
+                            <h3>Response</h3>
+                            <h4>Codes</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td><span class="badge badge-success">200</span></td>
+                                    <td>OK</td>
+                                    <td>Message hidden.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">402</span></td>
+                                    <td>Payment Request</td>
+                                    <td>Trying to call this endpoint without an Enterprise subscription.</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="badge badge-danger">404</span></td>
+                                    <td>Not Found</td>
+                                    <td>Message not found.</td>
+                                </tr>
+                            </table>
+
+
+                            <hr id="messageObject" />
+                            <h1 class="quicksand">Message</h1>
+                            <br />
+                            <h4>Parameters</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        title
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>The textual title or headline of the message to log.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        application
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>Used to identify which application logged this message. You can use this if you have multiple applications and services logging to the same log.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        cookies
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>Key/Value</td>
+                                    <td>A key/value pair of cookies. This property only makes sense for logging messages related to web requests.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        data
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>Key/Value</td>
+                                    <td>A key/value pair of user-defined fields and their values. When logging an exception, the <a href="https://msdn.microsoft.com/en-us/library/system.exception.data%28v=vs.110%29.aspx" rel="noopener noreferrer" target="_blank">Data</a> dictionary of the exception is copied to this property. You can add additional key/value pairs, by modifying the Data dictionary on the exception or by supplying additional key/values to this API.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        dateTime
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>The date and time in UTC of the message. If you don't provide us with a value in dateTime, we will set the current date and time in UTC.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        detail
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>A longer description of the message. For errors this could be a stacktrace, but it's really up to you what to log in there.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        form
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>Key/Value</td>
+                                    <td>A key/value pair of form fields and their values. This property makes sense if logging message related to users inputting data in a form.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        hostname
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>The hostname of the server logging the message.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        queryString
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>Key/Value</td>
+                                    <td>A key/value pair of query string parameters. This property makes sense if logging message related to a HTTP request.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        source
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>The source of the code logging the message. This could be the assembly name.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        serverVariables
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>Key/Value</td>
+                                    <td>A key/value pair of server values. Server variables are typically related to handling requests in a webserver but could be used for other types of information as well.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        severity
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>An enum value representing the severity of this message. The following values are allowed: Verbose, Debug, Information, Warning, Error, Fatal</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        statusCode
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>Number</td>
+                                    <td>If the message logged relates to a HTTP status code, you can put the code in this property. This would probably only be relevant for errors, but could be used for logging successful status codes as well.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        type
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>The type of message. If logging an error, the type of the exception would go into <i>type</i> but you can put anything in there, that makes sense for your domain.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        url
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>If message relates to a HTTP request, you may send the URL of that request. If you don't provide us with an URL, we will try to find a key named <i>URL</i> in <code>serverVariables</code>.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        user
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>An identification of the user triggering this message. You can put the users email address or your user key into this property.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        version
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>Versions can be used to distinguish messages from different versions of your software. The value of version can be a SemVer compliant string or any other syntax that you are using as your version numbering scheme.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <pre><span class="badge badge-secondary" title="Status Code">Body</span><code class="json">
+{
+    "title": "This is a test message",
+    "application": "elmah.io Website",
+    "cookies": [
+        {"key": "Version", "value": "2"},
+        {"key": "Language", "value": "English"}
+    ],
+    "data": [
+        {"key": "Hello", "value": "World"},
+        {"key": "Foo", "value": "Bar"}
+    ],
+    "dateTime": "2014-11-28T20:55:26+00:00",
+    "detail": "This is a very long description telling more details about this message",
+    "form": [
+        {"key": "Firstname", "value": "Thomas"},
+        {"key": "Lastname", "value": "Ardal"}
+    ],
+    "hostname": "Webserver01",
+    "queryString": [
+        {"key": "logid", "value": "f447950c-20a5-48bb-9324-074f58d83df9"},
+        {"key": "page", "value": "42"}
+    ],
+    "source": "System.Web.Mvc",
+    "serverVariables": [
+        {"key": "SERVER_PROTOCOL", "value": "HTTP/1.1"},
+        {"key": "SERVER_PORT", "value": "443"}
+    ],
+    "severity": "Information",
+    "statusCode": 200,
+    "url": "http://somedomain.com/some/path",
+    "type": "string",
+    "user": "info@elmah.io",
+    "version": "1.2.3"
+}</code></pre>
+                            <hr id="queryObject" />
+                            <h1 class="quicksand">Query</h1>
+                            <br />
+                            <h4>Parameters</h4>
+                            <table class="table-api">
+                                <tr>
+                                    <td>
+                                        query
+                                        <div class="text-muted">required</div>
+                                    </td>
+                                    <td>String</td>
+                                    <td>The text to search for or <a href="https://lucene.apache.org/core/2_9_4/queryparsersyntax.html" target="_blank" rel="noopener noreferrer">Lucene Query Syntax</a>.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        from
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>DateTime</td>
+                                    <td>The date and time to search from. If you don't provide us with a value in from, we will search from the beginning of time.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        to
+                                        <div class="text-muted">optional</div>
+                                    </td>
+                                    <td>DateTime</td>
+                                    <td>The date and time to search to. If you don't provide us with a value in to, we will search to the end of time.</td>
+                                </tr>
+                            </table>
+                            <br />
+                            <h4>Example</h4>
+                            <pre><span class="badge badge-secondary" title="Status Code">Body</span><code class="json">
+{
+    "query": "This is a test message",
+    "from": "2016-05-25T07:00:00+00:00",
+    "to": "2016-05-25T08:00:00+00:00",
+}</code></pre>
+                        </div>
+
+                    </div>
+                </article>
+            </div>
+        </div>
+
+
+        <!-- Footer -->
+        <footer>
+        	<div class="pre-footer">
+    	    	<div class="container">
+    	    		<div class="company-logo">
+    					<img class="img-fluid" src="images/elmahio.png" alt="elmah.io">
+    				</div>
+    				<a href="#" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+    			</div>
+    	    </div>
+        	<div class="links">
+        		<div class="container">
+        			<div class="row">
+        				<div class="col">
+        					<h5>Product</h5>
+        					<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/features/">Features</a></li>
+    							<li><a href="https://elmah.io/pricing/">Pricing</a></li>
+    							<li><a href="https://elmah.io/api">API</a></li>
+    							<li><a href="https://headwayapp.co/elmah-io-changelog" rel="noopener noreferrer" target="_blank">Changelog</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Company</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/about/">About</a></li>
+    							<li><a href="https://elmah.io/contact/">Contact</a></li>
+    							<li><a href="https://blog.elmah.io/">Blog</a></li>
+    							<li><a href="https://docs.elmah.io/">Docs</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Learn</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+    							<li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+    							<li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
+    							<li><a href="https://elmah.io/tools/">Free Tools</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Guides</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+    							<li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+    							<li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+    						</ul>
+        				</div>
+                        <div class="col">
+                            <h5>Social</h5>
+                            <ul class="list-unstyled social">
+                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="copyright">
+        		<div class="container">
+        			<div class="text-center">
+    					<p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
+    					<p><a href="https://elmah.io/termsofuse/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+    				</div>
+        		</div>
+        	</div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="scripts/jquery-3.3.1.js"></script>
+        <script src="scripts/popper.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <script src="scripts/owl.carousel.js"></script>
+        <script src="scripts/highlight.min.js"></script>
+        <script src="scripts/highlightjs-line-numbers.min.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>

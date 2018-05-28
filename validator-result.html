@@ -1,0 +1,317 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <title>ELMAH Cloud Logging - Error Management for .NET websites | elmah.io</title>
+        <meta name="description" content="Cloud logging for .NET web applications using ELMAH. Find bugs before you go live. Powerful search, API, integration with Slack, GitHub, Visual Studio and more" />
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="content/bootstrap.css" />
+        <link rel="stylesheet" href="content/fontawesome-all.css">
+        <link rel="stylesheet" href="content/owl.carousel.css" />
+        <link rel="stylesheet" href="content/highlight.min.css" />
+        <link rel="stylesheet" href="content/style.css" />
+    </head>
+
+    <body>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" href="https://elmah.io/"><img src="images/logo.png" alt="elmah.io"></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarText">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/features/">Features</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/about/">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://elmah.io/pricing/">Pricing</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://docs.elmah.io/">Docs</a></li>
+                        <li class="nav-item"><a class="nav-link" href="https://blog.elmah.io/">Blog</a></li>
+                    </ul>
+                    <ul class="navbar-nav navbar-nav-btn">
+                        <li class="nav-item"><a class="btn btn-outline-light" href="#">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Section Hero 2 -->
+        <div class="section section-hero-2">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col">
+                        <div>
+                            <h2>Reduce bugs with elmah.io</h2>
+                            <h4>When your website feels sick, we've got your back!</h4>
+                        </div>
+                    </div>
+                    <div class="col text-right d-none d-lg-block">
+                        <a class="btn btn-primary btn-signup-shadow text-center" href="https://elmah.io/?utm_source=blogheadercta&amp;utm_medium=blog&amp;utm_campaign=blogheadercta">No credit card required - sign up now <span class="fa fa-chevron-right"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Validator section -->
+        <div class="section">
+            <div class="container">
+                <div class="section-header">
+                	<h1><span class="fa fa-times-circle" style="color:#e6614f;"></span> Validation Result</h1>
+                </div>
+                <div class="section-body">
+                    <div class="row mb-5">
+                        <div class="col">
+                        	<ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item"><a class="nav-link active" id="error-tab" data-toggle="tab" href="#error" aria-controls="error" aria-selected="true"><span class="fa fa-times-circle" style="color:#e6614f"></span> Error (1)</a></li>
+                                <li class="nav-item"><a class="nav-link" id="warning-tab" data-toggle="tab" href="#warning" aria-controls="warning" aria-selected="false"><span class="fa fa-exclamation-triangle" style="color:#ffc936;"></span> Warning (2)</a></li>
+                                <li class="nav-item"><a class="nav-link" id="information-tab" data-toggle="tab" href="#information" aria-controls="information" aria-selected="false"><span class="fa fa-info-circle" style="color:#0da58e;"></span> Information (1)</a></li>
+                            </ul>
+                            <div class="tab-content" id="myTabContent">
+                                <div class="tab-pane fade show active" id="error" role="tabpanel" aria-labelledby="error-tab">
+                                    <ul>
+                                        <li><span class="fa fa-times-circle" style="color:#e6614f;"></span> (12,5) This is an error</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="warning" role="tabpanel" aria-labelledby="warning-tab">
+                                    <ul>
+                                        <li><span class="fa fa-exclamation-triangle" style="color:#ffc936;"></span> (12,5) This is a warning</li>
+                                        <li><span class="fa fa-exclamation-triangle" style="color:#ffc936;"></span> (12,5) This is another warning</li>
+                                    </ul>
+                                </div>
+                                <div class="tab-pane fade" id="information" role="tabpanel" aria-labelledby="information-tab">
+                                    <ul>
+                                        <li><span class="fa fa-info-circle" style="color:#0da58e;"></span> (12,5) This is a message</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col">
+
+                            <h3>Source</h3>
+                            <pre><code class="xml linenumber">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;!--
+  For more information on how to configure your ASP.NET application, please visit
+  http://go.microsoft.com/fwlink/?LinkId=152368
+  --&gt;
+&lt;configuration&gt;
+  &lt;configSections&gt;
+    &lt;sectionGroup name="elmah"&gt;
+      &lt;section name="security" requirePermission="false" type="Elmah.SecuritySectionHandler, Elmah" /&gt;
+      &lt;section name="errorLog" requirePermission="false" type="Elmah.ErrorLogSectionHandler, Elmah" /&gt;
+      &lt;section name="errorMail" requirePermission="false" type="Elmah.ErrorMailSectionHandler, Elmah" /&gt;
+      &lt;section name="errorFilter" requirePermission="false" type="Elmah.ErrorFilterSectionHandler, Elmah" /&gt;
+    &lt;/sectionGroup&gt;
+  &lt;/configSections&gt;
+  &lt;connectionStrings&gt;
+    &lt;add name="ApplicationServices" connectionString="data source=.\SQLEXPRESS;Integrated Security=SSPI;AttachDBFilename=|DataDirectory|aspnetdb.mdf;User Instance=true" providerName="System.Data.SqlClient" /&gt;
+    &lt;add name="MYEntities" connectionString="metadata=res://*/MYImport.csdl|res://*/MYImport.ssdl|res://*/MYImport.msl;provider=System.Data.SqlClient;provider connection string="data source=.\SQLEXPRESS;initial catalog=MYDB;integrated security=True;multipleactiveresultsets=True;App=EntityFramework"" providerName="System.Data.EntityClient" /&gt;
+  &lt;/connectionStrings&gt;
+  &lt;appSettings&gt;
+    &lt;add key="webpages:Version" value="1.0.0.0" /&gt;
+    &lt;add key="ClientValidationEnabled" value="true" /&gt;
+    &lt;add key="UnobtrusiveJavaScriptEnabled" value="true" /&gt;
+  &lt;/appSettings&gt;
+  &lt;system.web&gt;
+    &lt;httpHandlers&gt;
+      &lt;add verb="POST,GET,HEAD"
+           path="elmah.axd"
+           type="Elmah.ErrorLogPageFactory, Elmah" /&gt;
+    &lt;/httpHandlers&gt;
+    &lt;httpModules&gt;
+      &lt;add name="ErrorLog" type="Elmah.ErrorLogModule, <span class="fa fa-exclamation-triangle" style="color:#ffc936;"></span>Elmah"/&gt;
+    &lt;/httpModules&gt;
+    &lt;sessionState mode="InProc" timeout="120" /&gt;
+    &lt;compilation debug="true" targetFramework="4.0"&gt;
+      &lt;assemblies&gt;
+        &lt;add assembly="System.Web.Abstractions, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" /&gt;
+        &lt;add assembly="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" /&gt;
+        &lt;add assembly="System.Web.Routing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" /&gt;
+        &lt;add assembly="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" /&gt;
+        &lt;add assembly="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31BF3856AD364E35" /&gt;
+        &lt;add assembly="System.Data.Entity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" /&gt;
+      &lt;/assemblies&gt;
+    &lt;/compilation&gt;
+    &lt;authentication mode="Forms"&gt;
+      &lt;forms loginUrl="~/Account/LogOn" timeout="2880" /&gt;
+    &lt;/authentication&gt;
+    &lt;membership&gt;
+      &lt;providers&gt;
+        &lt;clear /&gt;
+        &lt;add name="AspNetSqlMembershipProvider" type=<span class="fa fa-info-circle" style="color:#0da58e;"></span>"System.Web.Security.SqlMembershipProvider" connectionStringName="ApplicationServices" enablePasswordRetrieval="false" enablePasswordReset="true" requiresQuestionAndAnswer="false" requiresUniqueEmail="false" maxInvalidPasswordAttempts="5" minRequiredPasswordLength="6" minRequiredNonalphanumericCharacters="0" passwordAttemptWindow="10" applicationName="/" /&gt;
+      &lt;/providers&gt;
+    &lt;/membership&gt;
+    &lt;profile&gt;
+      &lt;providers&gt;
+        &lt;clear /&gt;
+        &lt;add name="AspNetSqlProfileProvider" type="System.Web.Profile.SqlProfileProvider" connectionStringName="ApplicationServices" applicationName="/" /&gt;
+      &lt;/providers&gt;
+    &lt;/profile&gt;
+    &lt;roleManager enabled="true"&gt;
+      &lt;providers&gt;
+        &lt;clear /&gt;
+        &lt;add connectionStringName="ApplicationServices" applicationName="/" name="AspNetSqlRoleProvider" type="System.Web.Security.SqlRoleProvider" /&gt;
+        &lt;add applicationName="/" name="AspNetWindowsTokenRoleProvider" type="System.Web.Security.WindowsTokenRoleProvider" /&gt;
+      &lt;/providers&gt;
+    &lt;/roleManager&gt;
+    &lt;pages&gt;
+      &lt;namespaces&gt;
+        &lt;add namespace="System.Web.Helpers" /&gt;
+        &lt;add namespace="System.Web.Mvc" /&gt;
+        &lt;add namespace="System.Web.Mvc.Ajax" /&gt;
+        &lt;add namespace="System.Web.Mvc.Html" /&gt;
+        &lt;add namespace="System.Web.Routing" /&gt;
+        &lt;add namespace="System.Web.WebPages" /&gt;
+      &lt;/namespaces&gt;
+    &lt;/pages&gt;
+  &lt;/system.web&gt;
+  &lt;system.webServer&gt;
+    &lt;validation validateIntegratedModeConfiguration="false" /&gt;
+    &lt;modules runAllManagedModulesForAllRequests="true"&gt;
+      &lt;add name="ErrorLog" type="Elmah.ErrorLogModule, Elmah"/&gt;
+      &lt;add name="ErrorMail" type="Elmah.ErrorMailModule, Elmah" /&gt;
+      &lt;add name="ErrorFilter" type="Elmah.ErrorFilterModule, Elmah" /&gt;
+    &lt;/modules&gt;
+    &lt;handlers&gt;
+      &lt;add name="Elmah" verb="POST,GET,HEAD" path="elmah.axd" type="Elmah.ErrorLogPageFactory, Elmah" /&gt;
+    &lt;/handlers&gt;
+  &lt;/system.webServer&gt;
+  &lt;runtime&gt;
+    &lt;assemblyBinding xmlns="urn:schemas-microsoft-com:asm.v1"&gt;
+      &lt;dependentAssembly&gt;
+        &lt;assemblyIdentity name="System.Web.Mvc" publicKeyToken="31bf3856ad364e35" /&gt;
+        &lt;bindingRedirect oldVersion="1.0.0.0-2.0.0.0" newVersion="3.0.0.0" /&gt;
+      &lt;/dependentAssembly&gt;
+    &lt;/assemblyBinding&gt;
+  &lt;/runtime&gt;
+  &lt;elmah&gt;
+    &lt;errorLog <span class="fa fa-times-circle" style="color:#e6614f;"></span>type="Elmah.XmlFileErrorLog, Elmah" logPath="~/App_Data" /&gt;
+  &lt;/elmah&gt;
+&lt;/configuration&gt;</code></pre>
+
+                        </div>
+                    </div>
+
+
+                    <h2>Let us help you</h2>
+                    <p>We can help you reduce your bugs by 90%. Follow the simple steps below to start using elmah.io.</p>
+
+                    <div class="row">
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h4>1. Install the elmah.io NuGet package</h4>
+                            <div class="nuget-badge">
+                                <p><code>PM&gt; Install-Package elmah.io</code></p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h4>2. Insert your API key and log ID</h4>
+                            <div class="install-dialog">
+                                <div class="install-header">Input Log ID</div>
+                                <div class="install-text">elmah.io API Key:</div>
+                                <input type="text" class="form-control" data-bind="value: apiKey" value="17286d12d0554dc29e898a1e44d735a0" id="install-dialog-apikey-input">
+                                <div class="install-text">elmah.io Log ID:</div>
+                                <input type="text" class="form-control" data-bind="value: logId" value="17286d12-d055-4dc2-9e89-8a1e44d735a0" id="install-dialog-logid-input">
+                                <div class="fakebuttons">
+                                    <span class="fakebutton active">OK</span>
+                                    <span class="fakebutton">Cancel</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3 mb-md-0">
+                            <h4>3. Sign up for a free account</h4>
+                            <a href="#" class="btn btn-primary">Sign up</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+        	<div class="pre-footer">
+    	    	<div class="container">
+    	    		<div class="company-logo">
+    					<img class="img-fluid" src="images/elmahio.png" alt="elmah.io">
+    				</div>
+    				<a href="#" class="btn btn-primary float-right"><span>Sign Up Now</span><span class="info">no credit card required</span></a>
+    			</div>
+    	    </div>
+        	<div class="links">
+        		<div class="container">
+        			<div class="row">
+        				<div class="col">
+        					<h5>Product</h5>
+        					<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/features/">Features</a></li>
+    							<li><a href="https://elmah.io/pricing/">Pricing</a></li>
+    							<li><a href="https://elmah.io/api">API</a></li>
+    							<li><a href="https://headwayapp.co/elmah-io-changelog" rel="noopener noreferrer" target="_blank">Changelog</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Company</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/about/">About</a></li>
+    							<li><a href="https://elmah.io/contact/">Contact</a></li>
+    							<li><a href="https://blog.elmah.io/">Blog</a></li>
+    							<li><a href="https://docs.elmah.io/">Docs</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Learn</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/customer-stories/">Customer Stories</a></li>
+    							<li><a href="https://elmah.io/for-ctos/">For CEOs and CTOs</a></li>
+    							<li><a href="https://elmah.io/goodiebag/">Goodie Bag</a></li>
+    							<li><a href="https://elmah.io/tools/">Free Tools</a></li>
+    						</ul>
+        				</div>
+        				<div class="col">
+        					<h5>Guides</h5>
+    						<ul class="list-unstyled">
+    							<li><a href="https://elmah.io/devops/">.NET DevOps</a></li>
+    							<li><a href="https://elmah.io/microservices/">.NET Microservices</a></li>
+    							<li><a href="https://elmah.io/cloud-logging/">.NET Cloud Logging</a></li>
+    						</ul>
+        				</div>
+                        <div class="col">
+                            <h5>Social</h5>
+                            <ul class="list-unstyled social">
+                                <li class="list-inline-item"><a href="https://twitter.com/elmah_io"><i class="fab fa-twitter"></i></a></li>
+                                <li class="list-inline-item"><a href="https://facebook.com/elmahdotio"><i class="fab fa-facebook-f"></i></a></li>
+                                <li class="list-inline-item"><a href="https://plus.google.com/+ElmahIoPlus"><i class="fab fa-google-plus-g"></i></a></li>
+                                <li class="list-inline-item"><a href="https://www.linkedin.com/company/5354798"><i class="fab fa-linkedin-in"></i></a></li>
+                            </ul>
+                        </div>
+        			</div>
+        		</div>
+        	</div>
+        	<div class="copyright">
+        		<div class="container">
+        			<div class="text-center">
+    					<p>2013 - 2018 @ elmah.io. All Rights Reserved.</p>
+    					<p><a href="https://elmah.io/termsofuse/">Terms of Use</a> | <a href="https://elmah.io/legal/privacy-policy/">Privacy Policy</a> | <a href="https://elmah.io/legal/refund-policy/">Refund Policy</a></p>
+    				</div>
+        		</div>
+        	</div>
+        </footer>
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="scripts/jquery-3.3.1.js"></script>
+        <script src="scripts/popper.js"></script>
+        <script src="scripts/bootstrap.js"></script>
+        <script src="scripts/owl.carousel.js"></script>
+        <script src="scripts/highlight.min.js"></script>
+        <script src="scripts/highlightjs-line-numbers.min.js"></script>
+        <script src="scripts/main.js"></script>
+    </body>
+</html>
